@@ -1,6 +1,6 @@
 ﻿using StackExchange.Redis;
 
-namespace Demo.Common.Redis.Extension
+namespace Demo.Common.Redis
 {
     public static class CommonExtension
     {

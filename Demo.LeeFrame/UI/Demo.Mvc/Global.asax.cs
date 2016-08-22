@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Demo.WebMvc
+namespace Demo.Mvc
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -13,6 +13,7 @@ namespace Demo.WebMvc
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            IocConfig.Regist();
         }
     }
 }

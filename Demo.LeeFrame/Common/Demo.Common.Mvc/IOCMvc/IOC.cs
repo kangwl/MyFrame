@@ -37,7 +37,7 @@ namespace Demo.Common.Mvc.IOCMvc
         /// </summary>
         /// <param name="controllAssem"></param>
         /// <param name="types"></param>
-        public static void RegisterControllers(Assembly controllAssem, params Type[] types)
+        private static void RegisterControllers(Assembly controllAssem, params Type[] types)
         {
             //根据类型注册
             var builder = new ContainerBuilder();

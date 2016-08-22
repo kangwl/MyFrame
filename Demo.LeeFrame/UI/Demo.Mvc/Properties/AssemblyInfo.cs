@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Demo.WebMvc")]
+[assembly: AssemblyTitle("Demo.Mvc")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("Demo.WebMvc")]
+[assembly: AssemblyProduct("Demo.Mvc")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于 typelib 的 ID
-[assembly: Guid("de1e5dd1-8b7c-498e-8380-97e2f4f335cf")]
+[assembly: Guid("4458e661-1af6-45bd-9b1f-286478218669")]
 
 // 程序集的版本信息由下列四个值组成:
 //

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using StackExchange.Redis;
-using Demo.Common.Redis.Extension;
+using StackExchange.Redis; 
 
 namespace Demo.Common.Redis
 {
@@ -10,7 +9,7 @@ namespace Demo.Common.Redis
     ///     redis操作帮助类
     ///     不建议使用有序列化的方法
     /// </summary>
-    public static class RedisHelper
+    public static partial class RedisHelper
     {
         /// <summary>
         ///     配置
@@ -100,7 +99,7 @@ namespace Demo.Common.Redis
 
         public static bool HashSet(string hashKey, Dictionary<string, dynamic> dic)
         {
-            return Db.HashSetEXT(dic, hashKey);
+            return HashSetEXT(dic, hashKey);
         }
 
         public static bool HashDelete(string key, string field)
@@ -170,7 +169,7 @@ namespace Demo.Common.Redis
 
         public static string[] HashGetMuti(string hashkey, params string[] hashFields)
         {
-            return Db.HashGetMutiEXT(hashkey, hashFields);
+            return HashGetMutiEXT(hashkey, hashFields);
         }
 
         /// <summary>
