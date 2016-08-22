@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Demo.DataCenter.EF;
 using Demo.Model;
@@ -7,25 +9,15 @@ using Demo.Service.Interface;
 
 namespace Demo.Service
 {
-    public class UserServ : ServiceBase<User>, IUserServ
+    public class UserServ : ServiceBase<User>, IUserServ<User>
     {
         public User GetOne(Guid id)
-        { 
-            using (Context)
+        {
+            using (GetContext())
             {
-                return Data.SingleOrDefault(one => one.ID == id);
-            } 
-        }
-         
+                return base.GetOne(one => one.ID == id);
+            }
+        } 
 
-        public bool Insert(User user)
-        { 
-            using (Context)
-            {
-                Data.Add(user);
-                int ret = Context.SaveChanges();
-                return ret > 0;
-            } 
-        }
     }
 }
