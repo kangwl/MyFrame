@@ -21,12 +21,12 @@ namespace Demo.DataCenter.EF
             var types = assembly.GetTypes().Where(one => one.Namespace == "Demo.DataCenter.EF.Map").ToList();
             types.ForEach(one =>
             {
-              var obj=  Activator.CreateInstance(one);
+                dynamic obj = Activator.CreateInstance(one);
                 modelBuilder.Configurations.Add(obj);
-            }); 
-            modelBuilder.Configurations.Add(new UserMap());
-            modelBuilder.Configurations.Add(new CommissionDetailMap());
-            modelBuilder.Configurations.Add(new ArticleMap());
+            });
+            //modelBuilder.Configurations.Add(new UserMap());
+            //modelBuilder.Configurations.Add(new CommissionDetailMap());
+            //modelBuilder.Configurations.Add(new ArticleMap());
             base.OnModelCreating(modelBuilder);
         }
 
