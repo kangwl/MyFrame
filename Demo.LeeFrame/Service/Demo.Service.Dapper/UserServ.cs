@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using Demo.DataCenter.EF;
+using System.Text;
+using System.Threading.Tasks;
+using Demo.DataCenter.Dapper;
 using Demo.Model;
-using Demo.Service.Extend;
 using Demo.Service.Interface;
 
-namespace Demo.Service
+namespace Demo.Service.Dapper
 {
-    public class UserServ : ServiceBaseSimple<User>, IUserServ<User>
+    public class UserServ : IUserServ<User>
     {
-        public string TableName { get { return "User"; } }
+        public string TableName
+        {
+            get { return "User"; }
+        }
 
         public User GetOne(Guid id)
         {
-            using (var context = GetContext())
+            using (DataFactory dataFactory = new DataFactory(TableName))
             {
-                return Data.First(one => one.ID == id);
+                return dataFactory.GetOne<User>(id);
             }
         }
 
@@ -36,9 +39,11 @@ namespace Demo.Service
             throw new NotImplementedException();
         }
 
-        public List<User> GetPaged<TKey>(Func<User, bool> funcWhere, Func<User, TKey> funcOrderBy, int pageIndex, int pageSize, bool asc = true)
+        public List<User> GetPaged<TKey>(Func<User, bool> funcWhere, Func<User, TKey> funcOrderBy, int pageIndex,
+            int pageSize, bool asc = true)
         {
             throw new NotImplementedException();
         }
     }
+
 }

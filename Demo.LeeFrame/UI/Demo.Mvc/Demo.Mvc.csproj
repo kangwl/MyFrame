@@ -185,6 +185,10 @@
       <Project>{c3bd0cf9-09ae-4789-9b89-b6cbacfdb564}</Project>
       <Name>Demo.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Service\Demo.Service.Dapper\Demo.Service.Dapper.csproj">
+      <Project>{543e4fd4-b3ba-40fa-bc34-0a9fc3d1747a}</Project>
+      <Name>Demo.Service.Dapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Service\Demo.Service.Interface\Demo.Service.Interface.csproj">
       <Project>{9a1dc39e-0c62-4cee-a64a-0f61daa3b0ca}</Project>
       <Name>Demo.Service.Interface</Name>

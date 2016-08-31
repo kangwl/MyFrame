@@ -1,0 +1,15 @@
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Demo.Service.Dapper.dll
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Demo.Service.Dapper.pdb
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Demo.DataCenter.Dapper.dll
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Demo.Model.dll
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Demo.Service.Interface.dll
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\MySql.Data.dll
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Dapper.dll
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Demo.DataCenter.Dapper.pdb
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Demo.Model.pdb
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Demo.Service.Interface.pdb
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Dapper.pdb
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\bin\Debug\Dapper.xml
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\obj\Debug\Demo.Service.Dapper.csprojResolveAssemblyReference.cache
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\obj\Debug\Demo.Service.Dapper.dll
+E:\MyFrame\Demo.LeeFrame\Service\Demo.Service.Dapper\obj\Debug\Demo.Service.Dapper.pdb

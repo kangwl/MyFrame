@@ -7,8 +7,8 @@ namespace Demo.Mvc
     {
         public static void Regist()
         {
-            IOC.RegisterControllersByAssembly(Assembly.Load("Demo.Mvc"), Assembly.Load("Demo.Service"),
-                "Demo.Service", "Serv");
+            IOC.RegisterControllersByAssembly(Assembly.Load("Demo.Mvc"), Assembly.Load("Demo.Service.Dapper"),
+                "Demo.Service.Dapper", "Serv");
         }
     }
 }

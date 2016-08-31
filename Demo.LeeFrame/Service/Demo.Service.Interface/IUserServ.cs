@@ -6,6 +6,7 @@ namespace Demo.Service.Interface
 {
     public interface IUserServ<TModel>
     {
+        string TableName { get; }
         User GetOne(Guid id);
         bool Insert(User user);
         bool Delete(User user);

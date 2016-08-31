@@ -17,3 +17,6 @@
 /Demo.LeeFrame/Common/Demo.Common.Redis/obj
 /Demo.LeeFrame/packages
 /Demo.LeeFrame/.vs
+/Demo.LeeFrame/UI/Demo.Mvc/bin
+/Demo.LeeFrame/DataCenter/Demo.DataCenter.EF/bin
+/Demo.LeeFrame/UI/Demo.Mvc/obj
