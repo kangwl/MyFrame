@@ -46,9 +46,9 @@ namespace XK.WeiXin {
         /// 调用入口
         /// </summary>
         public void StartWeiXin() {
-            Log log=new Log();
+           // Log log=new Log();
             string httpmethod_lower = Request.HttpMethod.ToLower();
-            log.WriteLog("StartWeiXin:" + httpmethod_lower);
+            //log.WriteLog("StartWeiXin:" + httpmethod_lower);
             Action action = dicFunc.FirstOrDefault(d => d.Key == httpmethod_lower).Value;
          
             if (action != null) {
@@ -104,12 +104,12 @@ namespace XK.WeiXin {
         private void ResponsePostMessage() {
            // response message;
             using (System.IO.Stream xmStream = Request.InputStream) {
-                Log log = new Log();
-                log.WriteLog("ResponsePostMessage,start");
+                //Log log = new Log();
+                //log.WriteLog("ResponsePostMessage,start");
                 Core.Messages messages = new Messages();
                 string resMsg = messages.GetResponseMsg(xmStream);
                
-                log.WriteLog("ResponsePostMessage:" + resMsg);
+                //log.WriteLog("ResponsePostMessage:" + resMsg);
                 Response.Write(resMsg);
                 Response.End();
             }

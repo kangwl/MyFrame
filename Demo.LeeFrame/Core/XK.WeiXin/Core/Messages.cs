@@ -37,11 +37,11 @@ namespace XK.WeiXin.Core {
 
         //经过文本消息的逻辑处理后，输出
         private string ResponseTextMsg(XmlDocument xmlDoc) {
-            Log log=new Log();
-            log.WriteLog("ResponseTextMsg start");
+           // Log log=new Log();
+            //log.WriteLog("ResponseTextMsg start");
             Main.Logic.Text text = new Text(xmlDoc);
             string txtMsg = text.ResponseMessage();
-            log.WriteLog("ResponseTextMsg :"+ txtMsg);
+            //log.WriteLog("ResponseTextMsg :"+ txtMsg);
             return txtMsg;
         }
 
