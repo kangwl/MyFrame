@@ -1,6 +1,7 @@
 ﻿ 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,13 @@ namespace Demo.Console
             //user.Name = "eee";
             //bool success = userServ.Update(user);
             //System.Console.Write(success);
+            //DateTime.Parse("",DateTimeFormatInfo.GetInstance(CultureInfo.CreateSpecificCulture("")))
+            //var infos = CultureInfo.GetCultures(CultureTypes.NeutralCultures);
+            
+            DateTime dt = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.Local,
+                TimeZoneInfo.FindSystemTimeZoneById("China Standard Time"));
 
+            System.Console.WriteLine(dt);
             System.Console.Read();
         }
     }
