@@ -104,10 +104,10 @@
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/WebApp.WeiXin.dll">
-      <publishTime>09/08/2016 14:42:07</publishTime>
+      <publishTime>09/09/2016 13:43:59</publishTime>
     </File>
     <File Include="bin/XK.WeiXin.dll">
-      <publishTime>09/08/2016 14:42:04</publishTime>
+      <publishTime>09/09/2016 13:43:56</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
       <publishTime>01/28/2015 04:04:32</publishTime>

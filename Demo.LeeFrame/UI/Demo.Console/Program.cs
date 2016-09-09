@@ -3,8 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Demo.Common;
+using Demo.Common.Reflection;
 using Demo.DataCenter.Dapper;
 using Demo.Model;
 using Demo.Service;
@@ -18,7 +22,7 @@ namespace Demo.Console
         {
             //IUserServ<User> userServ = new UserServ();
             //Guid uid = Guid.NewGuid();
-            ////userServ.Insert(new User()
+            ////userServ.Insert(new User()visua
             ////{
             ////    ID = uid,
             ////    Age = 12,
@@ -39,11 +43,27 @@ namespace Demo.Console
             //System.Console.Write(success);
             //DateTime.Parse("",DateTimeFormatInfo.GetInstance(CultureInfo.CreateSpecificCulture("")))
             //var infos = CultureInfo.GetCultures(CultureTypes.NeutralCultures);
-            
-            DateTime dt = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.Local,
-                TimeZoneInfo.FindSystemTimeZoneById("China Standard Time"));
 
-            System.Console.WriteLine(dt);
+            //DateTime dt = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.Local,
+            //    TimeZoneInfo.FindSystemTimeZoneById("China Standard Time"));
+
+            //System.Console.WriteLine(dt);
+
+            //var list = new List<string>() {"asd", "12", "saaa"};
+            //string first = list.Find(one => one.IndexOf("a", StringComparison.Ordinal) != -1);
+            //System.Console.WriteLine(first);
+            string ipAddress;
+            IPAddress[] AddressList = Dns.GetHostEntry(Dns.GetHostName()).AddressList;
+            foreach (IPAddress _IPAddress in AddressList)
+            {
+                if (_IPAddress.AddressFamily.ToString() == "InterNetwork")
+                {
+                    ipAddress = _IPAddress.ToString();
+                    break;
+                }
+            }
+
+
             System.Console.Read();
         }
     }

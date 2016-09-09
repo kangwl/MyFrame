@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Security;
@@ -77,9 +78,12 @@ namespace XK.WeiXin {
             Array.Sort(ArrTmp);     //字典排序
 
             string tmpStr = string.Join("", ArrTmp);
-            tmpStr = FormsAuthentication.HashPasswordForStoringInConfigFile(tmpStr, "SHA1");
-
-            if (tmpStr == null) return false;
+           // tmpStr = FormsAuthentication.HashPasswordForStoringInConfigFile(tmpStr, "SHA1");
+            SHA1 sha1 = new SHA1CryptoServiceProvider();
+            byte[] bytes = Encoding.Default.GetBytes(tmpStr);
+            byte[] data = sha1.ComputeHash(bytes);
+            tmpStr = string.Join("", data.Select(one => one.ToString("x2")));
+            //if (tmpStr == null) return false;
             tmpStr = tmpStr.ToLower();
             return (tmpStr == signature);
         }
@@ -103,17 +107,23 @@ namespace XK.WeiXin {
         /// </summary>
         private void ResponsePostMessage() {
            // response message;
-            using (System.IO.Stream xmStream = Request.InputStream) {
+          
+            string message = ReturnPostMessage();
+            Response.Write(message);
+        }
+
+        private string ReturnPostMessage()
+        {
+            using (System.IO.Stream xmStream = Request.InputStream)
+            {
                 //Log log = new Log();
                 //log.WriteLog("ResponsePostMessage,start");
                 Core.Messages messages = new Messages();
                 string resMsg = messages.GetResponseMsg(xmStream);
-               
-                //log.WriteLog("ResponsePostMessage:" + resMsg);
-                Response.Write(resMsg);
-                Response.End();
-            }
 
+                return resMsg;
+            }
         }
+
     }
 }

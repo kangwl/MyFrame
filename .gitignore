@@ -21,3 +21,13 @@
 /Demo.LeeFrame/DataCenter/Demo.DataCenter.EF/bin
 /Demo.LeeFrame/UI/Demo.Mvc/obj
 /Demo.LeeFrame/Core/XK.WeiXin/bin
+/Demo.LeeFrame/UI/WebApp.WeiXin/bin
+/Demo.LeeFrame/UI/WebApp.WeiXin/obj/Release/Package/PackageTmp/bin
+/Demo.LeeFrame/DataCenter/Demo.DataCenter.Dapper/bin
+/Demo.LeeFrame/Service/Demo.Service.Dapper/bin
+/Demo.LeeFrame/Repository/Demo.Repository/bin
+/Demo.LeeFrame/Core/XK.WeiXin/obj
+/Demo.LeeFrame/Repository/Demo.Repository/obj
+/Demo.LeeFrame/DataCenter/Demo.DataCenter.Dapper/obj
+/Demo.LeeFrame/Service/Demo.Service.Dapper/obj
+/Demo.LeeFrame/UI/WebApp.WeiXin/obj

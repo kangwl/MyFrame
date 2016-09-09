@@ -17,7 +17,7 @@ namespace WebApp.WeiXin.Controllers
         public void Get()
         {
             try
-            { 
+            {
                 XK.WeiXin.Enter enter = new Enter(AppConfig.Instance.Token, HttpContext.Request, HttpContext.Response);
                 enter.StartWeiXin();
             }
@@ -26,7 +26,6 @@ namespace WebApp.WeiXin.Controllers
                 Log log = new Log();
                 log.WriteLog("Get:" + ex.Message + ex.StackTrace);
             }
-            // return View();
         }
 
         [HttpPost]
@@ -35,16 +34,16 @@ namespace WebApp.WeiXin.Controllers
         {
             try
             {
-
-
                 XK.WeiXin.Enter enter = new Enter(AppConfig.Instance.Token, HttpContext.Request, HttpContext.Response);
                 enter.StartWeiXin();
             }
             catch (Exception ex)
             {
-                Log log=new Log();
-                log.WriteLog("Post:" + ex.Message+ex.StackTrace);
+                Log log = new Log();
+                log.WriteLog("Post:" + ex.Message + ex.StackTrace);
             }
         }
+
+
     }
 }

@@ -42,6 +42,10 @@
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Supremes, Version=0.2.0.18776, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\dcsoup.0.2.0\lib\net45\Supremes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -100,13 +104,14 @@
     <Compile Include="ExtensionMethods\XmlExtensions.cs" />
     <Compile Include="IOC\IOCHepler.cs" />
     <Compile Include="JsonHelper.cs" />
+    <Compile Include="KuaiDiAPI.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="MyExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomHelper.cs" />
     <Compile Include="Reflection\AssemblyAccessor.cs" />
     <Compile Include="Reflection\InstanceActivator.cs" />
-    <Compile Include="Reflection\InternalLogger.cs" />
+    <Compile Include="InternalLogger.cs" />
     <Compile Include="Reflection\PropertyAccessor.cs" />
     <Compile Include="Reflection\TypeLoader.cs" />
     <Compile Include="StringHelper.cs" />

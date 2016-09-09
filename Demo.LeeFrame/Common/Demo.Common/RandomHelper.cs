@@ -21,7 +21,12 @@ namespace Demo.Common
             }
             return sb.ToString();
         }
-
+        /// <summary>
+        /// 格式：年月日 20160622 random 23112354
+        /// 2016062223112354
+        /// </summary>
+        /// <param name="len"></param>
+        /// <returns></returns>
         public static string CreateOrderNO(int len = 9)
         {
             var randomPart = CreateNumberStr(len);

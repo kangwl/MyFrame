@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 
-namespace Demo.Common.Reflection
+namespace Demo.Common
 {
     /// <summary>
     ///     Internal logger.

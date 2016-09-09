@@ -70,6 +70,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Demo.Common\Demo.Common.csproj">
+      <Project>{92778e2f-8ab5-428e-ac8f-4235129a64bb}</Project>
+      <Name>Demo.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DataCenter\Demo.DataCenter.Dapper\Demo.DataCenter.Dapper.csproj">
       <Project>{7870ef34-f2a2-4761-a27b-9404853844c0}</Project>
       <Name>Demo.DataCenter.Dapper</Name>
