@@ -9,10 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Demo.Common;
 using Demo.Common.Reflection;
+using Demo.Common.web;
 using Demo.DataCenter.Dapper;
 using Demo.Model;
 using Demo.Service;
 using Demo.Service.Interface;
+using NLog;
+using NLog.Config;
+using NLog.Layouts;
+using NLog.Targets;
 
 namespace Demo.Console
 {
@@ -52,19 +57,28 @@ namespace Demo.Console
             //var list = new List<string>() {"asd", "12", "saaa"};
             //string first = list.Find(one => one.IndexOf("a", StringComparison.Ordinal) != -1);
             //System.Console.WriteLine(first);
-            string ipAddress;
-            IPAddress[] AddressList = Dns.GetHostEntry(Dns.GetHostName()).AddressList;
-            foreach (IPAddress _IPAddress in AddressList)
-            {
-                if (_IPAddress.AddressFamily.ToString() == "InterNetwork")
-                {
-                    ipAddress = _IPAddress.ToString();
-                    break;
-                }
-            }
 
+ 
+            //var config = new LoggingConfiguration();
+            //var fileTarget = new FileTarget()
+            //{
+            //    Name = "TimeBasedArchive",
+            //    Layout = "${longdate} ${logger} ${message}",
+            //    FileName = "${basedir}/logs/logfile.txt",
+            //    ArchiveFileName = "${basedir}/archives/log.{##}.txt",
+            //    ArchiveEvery = FileArchivePeriod.Day,
+            //    ArchiveNumbering = ArchiveNumberingMode.Rolling,
+            //    MaxArchiveFiles = 10,
+            //    ConcurrentWrites = true,
+            //    KeepFileOpen = false,
+            //    Encoding = Encoding.UTF8
+            //};
+            //config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, fileTarget));
+            //LogManager.Configuration = config;
 
+            NLogHelper.Error("some wrong");
             System.Console.Read();
         }
     }
+
 }

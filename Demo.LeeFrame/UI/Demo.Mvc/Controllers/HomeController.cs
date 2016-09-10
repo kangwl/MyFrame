@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Demo.Model;
 using Demo.Service.Interface;
+using Exceptionless;
+using LogLevel = Exceptionless.Logging.LogLevel;
 
 namespace Demo.Mvc.Controllers
 {
@@ -14,8 +16,18 @@ namespace Demo.Mvc.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var user = UserServ.GetOne(Guid.Parse("ff2e2a7d-e94a-44a6-ae99-82605b4393cf"));
-            return View(user);
+            //var user = UserServ.GetOne(Guid.Parse("ff2e2a7d-e94a-44a6-ae99-82605b4393cf")); 
+            try
+            {
+                int.Parse("sdd");
+            }
+            catch (Exception ex)
+            {
+                
+                ex.ToExceptionless().AddTags("HomeController-Index").Submit();
+            }
+          
+            return View();
         }
     }
 }
