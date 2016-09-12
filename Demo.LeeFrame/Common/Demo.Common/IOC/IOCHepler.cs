@@ -8,6 +8,12 @@ using Autofac;
 
 namespace Demo.Common.IOC
 {
+    /*
+     * 步骤：
+     1.Regist
+     2.Build
+     3.Resolve
+         */
     public static class IOCHepler
     {
         private static IContainer container { get; set; }
@@ -44,6 +50,10 @@ namespace Demo.Common.IOC
             builder.RegisterType<T>().SingleInstance();
         }
 
+        public static void Regist<T, IT>()
+        {
+            builder.RegisterType<T>().As<IT>().AsImplementedInterfaces().PropertiesAutowired();
+        }
 
         public static void Regist<T, IT>(string name)
         {

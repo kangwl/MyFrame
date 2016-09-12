@@ -8,9 +8,12 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Demo.Common;
+using Demo.Common.IOC;
 using Demo.Common.Reflection;
 using Demo.Common.web;
 using Demo.DataCenter.Dapper;
+using Demo.DataCenter.Dapper.Repository;
+using Demo.DataCenter.Dapper.Repository.IRepository;
 using Demo.Model;
 using Demo.Service;
 using Demo.Service.Interface;
@@ -76,7 +79,23 @@ namespace Demo.Console
             //config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, fileTarget));
             //LogManager.Configuration = config;
 
-            NLogHelper.Error("some wrong");
+            IOCHepler.Regist<UserRepository,IUserRepository>();
+            IOCHepler.Build();
+
+            IUserRepository userRepository = IOCHepler.Resolve<IUserRepository>();
+            //IUserRepository userRepository = new UserRepository();
+             var user = new User() {ID = Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"), Name = "wqqq", Age = 12, QQ = "1234556", CreateTime = DateTime.Now };
+            //userRepository.Insert(user);
+            ////bool ok =
+            ////    userRepository.Insert(new User() {Name = "kwl", Age = 12, QQ = "1234556", CreateTime = DateTime.Now});
+
+            //List<User> users = userRepository.GetPaged(user, 1, 10, "Name=@Name", "Age ASC");
+            //users.ForEach(one=>System.Console.WriteLine(one.Name));
+            // System.Console.WriteLine(ok); 
+            userRepository.Insert(user);
+            User getUser = userRepository.GetOne(user.ID, new User() {ID = user.ID});
+            //userRepository.Delete(user);
+
             System.Console.Read();
         }
     }

@@ -18,10 +18,7 @@ namespace Demo.Service.Dapper
 
         public User GetOne(Guid id)
         {
-            using (DataFactory dataFactory = new DataFactory(TableName))
-            {
-                return dataFactory.GetOne<User>(id);
-            }
+            return new User();
         }
 
         public bool Insert(User user)

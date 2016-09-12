@@ -1,10 +1,10 @@
 ﻿using System;
-using Demo.Model.Extend;
 
 namespace Demo.Model
 {
-    public class CommissionDetail : EntityBase
+    public class CommissionDetail 
     {
+        public Guid ID { get; set; }
         public decimal Amt { get; set; } 
         public Guid UserID { get; set; }
 
