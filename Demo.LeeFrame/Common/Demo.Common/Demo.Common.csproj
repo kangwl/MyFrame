@@ -88,6 +88,13 @@
   <ItemGroup>
     <Compile Include="CacheHelper.cs" />
     <Compile Include="CookieHepler.cs" />
+    <Compile Include="DB\Operate\DeleteEntity.cs" />
+    <Compile Include="DB\Operate\InsertEntity.cs" />
+    <Compile Include="DB\Operate\PagedEntity.cs" />
+    <Compile Include="DB\Operate\SelectEntity.cs" />
+    <Compile Include="DB\Operate\UpdateEntity.cs" />
+    <Compile Include="DB\OrderByItem.cs" />
+    <Compile Include="DB\WhereItem.cs" />
     <Compile Include="EncryptHelper.cs" />
     <Compile Include="EncryptHelper2.cs" />
     <Compile Include="EnumHelper.cs" />

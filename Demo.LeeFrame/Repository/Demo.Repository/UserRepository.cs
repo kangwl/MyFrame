@@ -1,39 +1,101 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Demo.Common.DB;
+using Demo.Common.DB.Operate;
 using Demo.DataCenter.Dapper;
 using Demo.Model;
-using Demo.Repository.Interface;
+using Demo.Repository.IRepository;
 
 namespace Demo.Repository
 {
-    public class UserRepository : IRepository<User>
+    public class UserRepository : BaseRepository, IUserRepository
     {
-        public bool Insert(User t)
+        public string TableName
         {
-            throw new NotImplementedException();
+            get { return "User"; }
         }
 
-        public bool Update(User t)
+        public bool Insert(User user)
         {
-            throw new NotImplementedException();
+            InsertEntity<User> insertEntity = new InsertEntity<User>(TableName, user, new List<string>()
+            {
+                nameof(user.ID),
+                nameof(user.Age),
+                nameof(user.Name),
+                nameof(user.QQ),
+                nameof(user.CreateTime),
+                nameof(user.UpdateTime)
+            });
+            return base.InsertBase(insertEntity);
         }
 
-        public bool Delete(User t)
+        public bool Delete(List<WhereItem> whereItems, User user)
         {
-            throw new NotImplementedException();
+            DeleteEntity<User> deleteEntity = new DeleteEntity<User>(TableName, whereItems, user);
+            return base.DeleteBase(deleteEntity);
         }
 
-        public User GetOne()
+        public bool Update(List<string> updateFieldList, List<WhereItem> whereItems, User user)
         {
-            throw new NotImplementedException();
+            UpdateEntity<User> updateEntity = new UpdateEntity<User>(TableName, updateFieldList, whereItems, user);
+
+            return base.UpdateBase(updateEntity);
         }
 
-        public List<User> GetPaged(int pageIndex, int pageSize, string orderBy)
+        public User GetOne(Guid ID, User user)
         {
-            throw new NotImplementedException();
+            List<WhereItem> whereItems = new List<WhereItem>()
+            {
+                new WhereItem() {Field = nameof(user.ID), Signal = "="}
+            };
+            SelectEntity<User> selectEntity = new SelectEntity<User>(TableName, new List<string>(), whereItems, user);
+
+            return base.GetOneBase(selectEntity);
         }
+
+        public bool Exist(List<WhereItem> whereItems, User user)
+        {
+            SelectEntity<User> selectEntity = new SelectEntity<User>(TableName, new List<string>(), whereItems, user);
+            return base.ExistBase(selectEntity);
+        }
+
+        public int GetRecordCount(List<WhereItem> whereItems, User user)
+        {
+            SelectEntity<User> selectEntity = new SelectEntity<User>(TableName, new List<string>(), whereItems, user);
+            return base.GetRecordCountBase(selectEntity);
+        }
+
+        /// <summary>
+        /// 获取分页数据
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="selectFieldList">需要获取的字段 （全部字段 * 时,其Count属性为0即可 ）</param>
+        /// <param name="orderByItem">order by item</param>
+        /// <param name="whereItems">where item</param>
+        /// <param name="user">用于取值</param>
+        /// <returns></returns>
+        public List<User> GetPaged(int pageIndex, int pageSize, List<string> selectFieldList, OrderByItem orderByItem,
+            List<WhereItem> whereItems, User user)
+        {
+            PagedEntity<User> pagedEntity = new PagedEntity<User>(TableName, pageIndex, pageSize)
+            {
+                OrderByItem = orderByItem,
+                SelectFieldList = selectFieldList,
+                TEntity = user,
+                WhereItems = whereItems
+            };
+
+            return base.GetPagedBase(pagedEntity);
+        }
+
+        public void OtherLogic()
+        {
+            using (DataFactory factory = new DataFactory())
+            {
+                //factory.DapperConn.Query()
+            }
+        }
+
     }
 }

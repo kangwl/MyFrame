@@ -78,13 +78,13 @@
       <Project>{92778e2f-8ab5-428e-ac8f-4235129a64bb}</Project>
       <Name>Demo.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\DataCenter\Demo.DataCenter.Dapper\Demo.DataCenter.Dapper.csproj">
-      <Project>{7870ef34-f2a2-4761-a27b-9404853844c0}</Project>
-      <Name>Demo.DataCenter.Dapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Model\Demo.Model\Demo.Model.csproj">
       <Project>{c3bd0cf9-09ae-4789-9b89-b6cbacfdb564}</Project>
       <Name>Demo.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Repository\Demo.Repository\Demo.Repository.csproj">
+      <Project>{77b0e451-4fa7-47c9-9ef1-9b7ac78856a9}</Project>
+      <Name>Demo.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Service\Demo.Service.Interface\Demo.Service.Interface.csproj">
       <Project>{9a1dc39e-0c62-4cee-a64a-0f61daa3b0ca}</Project>

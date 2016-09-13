@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,11 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="IRepository\IRepositoryBase.cs" />
+    <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Demo.Common\Demo.Common.csproj">
+      <Project>{92778e2f-8ab5-428e-ac8f-4235129a64bb}</Project>
+      <Name>Demo.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DataCenter\Demo.DataCenter.Dapper\Demo.DataCenter.Dapper.csproj">
       <Project>{7870ef34-f2a2-4761-a27b-9404853844c0}</Project>
       <Name>Demo.DataCenter.Dapper</Name>
@@ -53,6 +63,9 @@
       <Project>{c3bd0cf9-09ae-4789-9b89-b6cbacfdb564}</Project>
       <Name>Demo.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -52,11 +52,7 @@
   <ItemGroup>
     <Compile Include="DataFactory.cs" />
     <Compile Include="DBEnum.cs" />
-    <Compile Include="Repository\IRepository\IRepositoryBase.cs" />
-    <Compile Include="Repository\IRepository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\BaseRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="SqlBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Demo.Common\Demo.Common.csproj">
+      <Project>{92778E2F-8AB5-428E-AC8F-4235129A64BB}</Project>
+      <Name>Demo.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Model\Demo.Model\Demo.Model.csproj">
       <Project>{c3bd0cf9-09ae-4789-9b89-b6cbacfdb564}</Project>
       <Name>Demo.Model</Name>

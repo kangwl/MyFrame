@@ -8,13 +8,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Demo.Common;
+using Demo.Common.DB;
+using Demo.Common.DB.Operate;
 using Demo.Common.IOC;
 using Demo.Common.Reflection;
-using Demo.Common.web;
-using Demo.DataCenter.Dapper;
-using Demo.DataCenter.Dapper.Repository;
-using Demo.DataCenter.Dapper.Repository.IRepository;
+using Demo.Common.web; 
 using Demo.Model;
+using Demo.Repository;
+using Demo.Repository.IRepository;
 using Demo.Service;
 using Demo.Service.Interface;
 using NLog;
@@ -84,7 +85,7 @@ namespace Demo.Console
 
             IUserRepository userRepository = IOCHepler.Resolve<IUserRepository>();
             //IUserRepository userRepository = new UserRepository();
-             var user = new User() {ID = Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"), Name = "wqqq", Age = 12, QQ = "1234556", CreateTime = DateTime.Now };
+            // var user = new User() {ID = Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"), Name = "wqqq", Age = 12, QQ = "1234556", CreateTime = DateTime.Now };
             //userRepository.Insert(user);
             ////bool ok =
             ////    userRepository.Insert(new User() {Name = "kwl", Age = 12, QQ = "1234556", CreateTime = DateTime.Now});
@@ -92,10 +93,29 @@ namespace Demo.Console
             //List<User> users = userRepository.GetPaged(user, 1, 10, "Name=@Name", "Age ASC");
             //users.ForEach(one=>System.Console.WriteLine(one.Name));
             // System.Console.WriteLine(ok); 
-            userRepository.Insert(user);
-            User getUser = userRepository.GetOne(user.ID, new User() {ID = user.ID});
+            //userRepository.Insert(user);
+            //User getUser = userRepository.GetOne(user.ID, new User() {ID = user.ID});
             //userRepository.Delete(user);
+            //List<WhereItem> whereItems = new List<WhereItem>()
+            //{
+            //    new WhereItem() {Field = nameof(user.Name), Signal = "="}
+            //};
+            //OrderByItem orderByItem = new OrderByItem() {OrderByFiled = nameof(user.CreateTime), Asc = false};
+            //List<User> users = userRepository.Paged(1, 10, whereItems, orderByItem, user);
 
+            //List<User> userlList = new List<User>();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    userlList.Add(new User() {ID = Guid.NewGuid(), Age = 13, Name = "kwl" + i, CreateTime = DateTime.Now});
+            //}
+            //userRepository.InsertBath(userlList);
+            User user = new User() {Name = "%kwl%"};
+            bool exist =
+                userRepository.Exist(new List<WhereItem>() {new WhereItem() {Field = nameof(user.Name), Signal = "like"}},
+                    user);
+            int count = userRepository.GetRecordCount(new List<WhereItem>() { new WhereItem() { Field = nameof(user.Name), Signal = "like" } },
+                    user);
+            System.Console.WriteLine(count);
             System.Console.Read();
         }
     }

@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Demo.Common.DB;
 
 namespace Demo.DataCenter.Dapper
 {
+    /// <summary>
+    /// 事务组装器
+    /// </summary>
+    public class TranscationBuilder
+    {
+        public string SqlWithParams { get; set; }
+        public object Params { get; set; }
+    }
+
     public class SqlBuilder
     {
         #region ready
-        private static DBEnum _dialect;
+        public static DBEnum _dialect;
 
-        private static string _wrapper;
+        public static string _wrapper;
 
-        private static string _parameterChar;
+        public static string _parameterChar;
 
         private static readonly string dbType = DataFactory.DbProviderStr;
         static SqlBuilder()
@@ -123,7 +133,7 @@ namespace Demo.DataCenter.Dapper
         public static string BuildWhere(List<WhereItem> whereFieldList)
         {
             if (whereFieldList.Count == 0) return " 1=1 ";
-            string whereItemTemp = "{0}{1}{2}{3}";
+            string whereItemTemp = "{0} {1} {2}{3}";
             List<string> whereItemList = new List<string>();
             whereFieldList.ForEach(one =>
             {
@@ -135,20 +145,6 @@ namespace Demo.DataCenter.Dapper
 
             return whereStr;
         }
-
-        public class WhereItem
-        {
-            /// <summary>
-            /// 字段
-            /// </summary>
-            public string Field { get; set; }
-            /// <summary>
-            /// 符号
-            /// =
-            /// >
-            /// >=
-            /// </summary>
-            public string Signal { get; set; } 
-        }
+ 
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection;
-using Dapper;
 using MySql.Data.MySqlClient;
 
 namespace Demo.DataCenter.Dapper
@@ -48,15 +44,17 @@ namespace Demo.DataCenter.Dapper
 
         public IDbConnection DapperConn => _connection ?? (_connection = GetOpenConnection());
 
-      
-          
+
+
 
         public void Dispose()
         {
+
             if (DapperConn.State == ConnectionState.Open)
             {
                 DapperConn.Close();
             }
+            DapperConn.Dispose();
         }
     }
 

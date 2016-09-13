@@ -5,17 +5,23 @@ using System.Linq;
 using Dapper;
 using Demo.Common.DB;
 using Demo.Common.DB.Operate;
+using Demo.DataCenter.Dapper;
 
-namespace Demo.DataCenter.Dapper.Repository
+namespace Demo.Repository
 {
 
     /// <summary>
     /// 一些基础操作
     /// </summary>
-    /// <typeparam name="T">用于为sql参数赋值</typeparam>
-    public class BaseRepository<T> where T:class, new()
+    public class BaseRepository
     {
-        public bool InsertBase(InsertEntity<T> insertEntity)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T">用于为sql参数赋值,以下一样</typeparam>
+        /// <param name="insertEntity"></param>
+        /// <returns></returns>
+        public bool InsertBase<T>(InsertEntity<T> insertEntity) where T : class, new()
         { 
             using (DataFactory factory=new DataFactory())
             {
@@ -25,7 +31,7 @@ namespace Demo.DataCenter.Dapper.Repository
         }
          
         
-        public bool UpdateBase(UpdateEntity<T> updateEntity)
+        public bool UpdateBase<T>(UpdateEntity<T> updateEntity) where T : class, new()
         { 
             using (DataFactory factory = new DataFactory())
             {
@@ -34,7 +40,7 @@ namespace Demo.DataCenter.Dapper.Repository
             } 
         }
 
-        public bool DeleteBase(DeleteEntity<T> deleteEntity)
+        public bool DeleteBase<T>(DeleteEntity<T> deleteEntity) where T : class, new()
         {
             using (DataFactory factory = new DataFactory())
             {
@@ -44,7 +50,7 @@ namespace Demo.DataCenter.Dapper.Repository
         }
 
 
-        public T GetOneBase(SelectEntity<T> selectEntity)
+        public T GetOneBase<T>(SelectEntity<T> selectEntity) where T : class, new()
         { 
             using (DataFactory factory = new DataFactory())
             {
@@ -53,14 +59,20 @@ namespace Demo.DataCenter.Dapper.Repository
             } 
         }
 
-        public bool ExistBase(SelectEntity<T> selectEntity)
+        public bool ExistBase<T>(SelectEntity<T> selectEntity) where T : class, new()
+        {
+            return GetRecordCountBase(selectEntity) > 0;
+        }
+
+        public int GetRecordCountBase<T>(SelectEntity<T> selectEntity) where T : class, new()
         {
             using (DataFactory factory = new DataFactory())
             {
                 string sqlWhere = SqlBuilder.BuildWhere(selectEntity.WhereItems);
-                string sql = $"select count(1) from {selectEntity.TableName} where {sqlWhere}";
+                string sql =
+                    $"select count(1) from {string.Format(SqlBuilder._wrapper, selectEntity.TableName)} where {sqlWhere}";
                 int count = factory.DapperConn.QuerySingle<int>(sql, selectEntity.TEntity);
-                return count > 0;
+                return count;
             }
         }
 
@@ -69,7 +81,7 @@ namespace Demo.DataCenter.Dapper.Repository
         /// </summary> 
         /// <param name="pagedEntity"></param>
         /// <returns></returns>
-        public List<T> GetPagedBase(PagedEntity<T> pagedEntity)
+        public List<T> GetPagedBase<T>(PagedEntity<T> pagedEntity) where T : class, new()
         {
             using (DataFactory factory = new DataFactory())
             {
@@ -102,10 +114,10 @@ namespace Demo.DataCenter.Dapper.Repository
             }
         }
         
-        private List<T> GetPagedBase(DataFactory factory, string table, int pageIndex, int pageSize,
+        private List<T> GetPagedBase<T>(DataFactory factory, string table, int pageIndex, int pageSize,
             List<string> selectFieldList,
             List<WhereItem> whereFieldList, string orderBy,
-            T t)
+            T t) where T : class, new()
         {
             string sqlPage = "";
             if (factory.DbType == DBEnum.MSSQL)
