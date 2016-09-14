@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Demo.Common.DB;
 using Demo.Model;
+using Demo.Repository._Base;
 
 namespace Demo.Repository.IRepository
 {

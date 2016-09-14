@@ -7,7 +7,7 @@ using Demo.Common.DB;
 using Demo.Common.DB.Operate;
 using Demo.DataCenter.Dapper;
 
-namespace Demo.Repository
+namespace Demo.Repository._Base
 {
 
     /// <summary>
@@ -101,7 +101,7 @@ namespace Demo.Repository
                 }
                 else
                 {
-                    string orderByField = string.Format(SqlBuilder._wrapper, pagedEntity.OrderByItem);
+                    string orderByField = string.Format(SqlBuilder._wrapper, pagedEntity.OrderByItem.OrderByFiled);
                     orderby = pagedEntity.OrderByItem.Asc
                       ? $"{orderByField} asc"
                       : $"{orderByField} desc";

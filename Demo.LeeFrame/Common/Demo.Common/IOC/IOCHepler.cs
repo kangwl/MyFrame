@@ -59,7 +59,7 @@ namespace Demo.Common.IOC
         public static void Regist(params Type[] types)
         {
             if (!types.Any()) return;
-            builder.RegisterTypes(types).PropertiesAutowired();
+            builder.RegisterTypes(types).AsImplementedInterfaces().PropertiesAutowired();
         }
 
         public static void RegistSingleton<T, IT>()

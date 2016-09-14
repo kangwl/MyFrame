@@ -5,8 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Demo.Model;
 using Demo.Service.Interface;
-using Exceptionless;
-using LogLevel = Exceptionless.Logging.LogLevel;
+using Exceptionless; 
 
 namespace Demo.Mvc.Controllers
 {
@@ -21,10 +20,10 @@ namespace Demo.Mvc.Controllers
             {
                 int.Parse("sdd");
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 
-                ex.ToExceptionless().AddTags("HomeController-Index").Submit();
+               // ex.ToExceptionless().AddTags("HomeController-Index").Submit();
             }
           
             return View();

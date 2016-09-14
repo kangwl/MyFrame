@@ -9,7 +9,7 @@ namespace Demo.DataCenter.Dapper
     {
 
         private static readonly string Connstr =
-            System.Configuration.ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+            System.Configuration.ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         public static readonly string DbProviderStr =
             System.Configuration.ConfigurationManager.AppSettings["DbProvider"];
@@ -45,8 +45,6 @@ namespace Demo.DataCenter.Dapper
         public IDbConnection DapperConn => _connection ?? (_connection = GetOpenConnection());
 
 
-
-
         public void Dispose()
         {
 
@@ -54,7 +52,7 @@ namespace Demo.DataCenter.Dapper
             {
                 DapperConn.Close();
             }
-            DapperConn.Dispose();
+            DapperConn?.Dispose();
         }
     }
 

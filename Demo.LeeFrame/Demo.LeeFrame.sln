@@ -31,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Console", "UI\Demo.Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Mvc", "UI\Demo.Mvc\Demo.Mvc.csproj", "{4458E661-1AF6-45BD-9B1F-286478218669}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C4CB5070-B36B-4692-B7F6-8663FEDE745D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.DataCenter.Dapper", "DataCenter\Demo.DataCenter.Dapper\Demo.DataCenter.Dapper.csproj", "{7870EF34-F2A2-4761-A27B-9404853844C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Service.Dapper", "Service\Demo.Service.Dapper\Demo.Service.Dapper.csproj", "{543E4FD4-B3BA-40FA-BC34-0A9FC3D1747A}"

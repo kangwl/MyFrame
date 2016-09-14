@@ -5,6 +5,7 @@ using Demo.Common.DB.Operate;
 using Demo.DataCenter.Dapper;
 using Demo.Model;
 using Demo.Repository.IRepository;
+using Demo.Repository._Base;
 
 namespace Demo.Repository
 {

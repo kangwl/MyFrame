@@ -80,7 +80,10 @@ namespace Demo.Console
             //config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, fileTarget));
             //LogManager.Configuration = config;
 
-            IOCHepler.Regist<UserRepository,IUserRepository>();
+           // IOCHepler.Regist<UserRepository,IUserRepository>();
+            var types =
+                Assembly.Load("Demo.Repository").GetTypes().Where(one => one.Name.EndsWith("Repository")).ToArray();
+            IOCHepler.Regist(types);
             IOCHepler.Build();
 
             IUserRepository userRepository = IOCHepler.Resolve<IUserRepository>();
@@ -109,13 +112,32 @@ namespace Demo.Console
             //    userlList.Add(new User() {ID = Guid.NewGuid(), Age = 13, Name = "kwl" + i, CreateTime = DateTime.Now});
             //}
             //userRepository.InsertBath(userlList);
-            User user = new User() {Name = "%kwl%"};
-            bool exist =
-                userRepository.Exist(new List<WhereItem>() {new WhereItem() {Field = nameof(user.Name), Signal = "like"}},
-                    user);
-            int count = userRepository.GetRecordCount(new List<WhereItem>() { new WhereItem() { Field = nameof(user.Name), Signal = "like" } },
-                    user);
-            System.Console.WriteLine(count);
+            //User user = new User() {Name = "%kwl%"};
+            //bool exist =
+            //    userRepository.Exist(new List<WhereItem> {new WhereItem(nameof(user.Name), "like")}, user);
+            //int count = userRepository.GetRecordCount(new List<WhereItem> {new WhereItem(nameof(user.Name), "like")},
+            //    user);
+            //System.Console.WriteLine(count);
+
+            ICommissionDetailRepository commissionDetailRepository = IOCHepler.Resolve<ICommissionDetailRepository>();
+            //CommissionDetail detail = new CommissionDetail()
+            //{
+            //    ID = Guid.NewGuid(),
+            //    Amt = 15.3455m,
+            //    UserID = Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"),
+            //    CreateTime = DateTime.Now
+            //};
+            //bool ok = commissionDetailRepository.Insert(detail);
+            //System.Console.WriteLine(ok);
+
+            //CommissionDetail detail =
+            //    commissionDetailRepository.GetOne(Guid.Parse("4D2EC216-A793-47BC-8C21-8997188C1583"));
+            //System.Console.WriteLine(detail.Amt);
+
+            List<CommissionDetail> commissionDetails =
+                commissionDetailRepository.GetPaged(Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"), 1, 10);
+            commissionDetails.ForEach(one => System.Console.WriteLine(one.Amt));
+
             System.Console.Read();
         }
     }

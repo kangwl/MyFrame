@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseRepository.cs" />
-    <Compile Include="IRepository\IRepositoryBase.cs" />
+    <Compile Include="_Base\BaseRepository.cs" />
+    <Compile Include="CommissionDetailRepository.cs" />
+    <Compile Include="IRepository\ICommissionDetailRepository.cs" />
+    <Compile Include="_Base\IRepositoryBase.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />

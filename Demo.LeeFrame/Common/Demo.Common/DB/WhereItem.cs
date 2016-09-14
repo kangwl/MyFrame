@@ -18,7 +18,7 @@
         /// </summary>
         public string Field { get; set; }
         /// <summary>
-        /// 符号
+        /// Sql 符号
         /// =
         /// >
         /// >=

@@ -1,4 +1,4 @@
-﻿namespace Demo.Repository.IRepository
+﻿namespace Demo.Repository._Base
 {
     public interface IRepositoryBase
     {
