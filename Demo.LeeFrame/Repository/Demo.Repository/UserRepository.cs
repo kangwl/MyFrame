@@ -43,8 +43,9 @@ namespace Demo.Repository
             return base.UpdateBase(updateEntity);
         }
 
-        public User GetOne(Guid ID, User user)
+        public User GetOne(Guid ID)
         {
+            User user = new User() {ID = ID};
             List<WhereItem> whereItems = new List<WhereItem>()
             {
                 new WhereItem() {Field = nameof(user.ID), Signal = "="}
@@ -79,9 +80,8 @@ namespace Demo.Repository
         public List<User> GetPaged(int pageIndex, int pageSize, List<string> selectFieldList, OrderByItem orderByItem,
             List<WhereItem> whereItems, User user)
         {
-            PagedEntity<User> pagedEntity = new PagedEntity<User>(TableName, pageIndex, pageSize)
+            PagedEntity<User> pagedEntity = new PagedEntity<User>(TableName, orderByItem, pageIndex, pageSize)
             {
-                OrderByItem = orderByItem,
                 SelectFieldList = selectFieldList,
                 TEntity = user,
                 WhereItems = whereItems

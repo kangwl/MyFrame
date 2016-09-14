@@ -34,6 +34,10 @@
       <HintPath>..\..\packages\Autofac.4.0.0\lib\net451\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.Mvc5.4.0.0\lib\net451\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -114,6 +118,7 @@
     <Compile Include="ExtensionMethods\WebExtensions.cs" />
     <Compile Include="ExtensionMethods\XmlExtensions.cs" />
     <Compile Include="IOC\IOCHepler.cs" />
+    <Compile Include="IOC\IOCMvcHelper.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="KuaiDiAPI.cs" />
     <Compile Include="Log.cs" />

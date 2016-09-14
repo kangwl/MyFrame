@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Demo.Common.Mvc.IOCMvc;
+using Demo.Common.IOC;
 
 namespace Demo.Mvc
 {
@@ -7,7 +7,7 @@ namespace Demo.Mvc
     {
         public static void Regist()
         {
-            IOC.RegisterControllersByAssembly(Assembly.Load("Demo.Mvc"), Assembly.Load("Demo.Service.Dapper"),
+            IOCMvcHelper.RegisterControllersByAssembly(Assembly.Load("Demo.Mvc"), Assembly.Load("Demo.Service.Dapper"),
                 "Demo.Service.Dapper", "Serv");
         }
     }

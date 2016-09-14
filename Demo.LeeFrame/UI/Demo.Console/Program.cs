@@ -86,7 +86,7 @@ namespace Demo.Console
             IOCHepler.Regist(types);
             IOCHepler.Build();
 
-            IUserRepository userRepository = IOCHepler.Resolve<IUserRepository>();
+
             //IUserRepository userRepository = new UserRepository();
             // var user = new User() {ID = Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"), Name = "wqqq", Age = 12, QQ = "1234556", CreateTime = DateTime.Now };
             //userRepository.Insert(user);
@@ -118,7 +118,7 @@ namespace Demo.Console
             //int count = userRepository.GetRecordCount(new List<WhereItem> {new WhereItem(nameof(user.Name), "like")},
             //    user);
             //System.Console.WriteLine(count);
-
+            IUserRepository userRepository = IOCHepler.Resolve<IUserRepository>();
             ICommissionDetailRepository commissionDetailRepository = IOCHepler.Resolve<ICommissionDetailRepository>();
             //CommissionDetail detail = new CommissionDetail()
             //{
@@ -133,11 +133,13 @@ namespace Demo.Console
             //CommissionDetail detail =
             //    commissionDetailRepository.GetOne(Guid.Parse("4D2EC216-A793-47BC-8C21-8997188C1583"));
             //System.Console.WriteLine(detail.Amt);
-
+  
             List<CommissionDetail> commissionDetails =
                 commissionDetailRepository.GetPaged(Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"), 1, 10);
             commissionDetails.ForEach(one => System.Console.WriteLine(one.Amt));
-
+            //
+            User user = userRepository.GetOne(Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"));
+            System.Console.WriteLine(user.Name);
             System.Console.Read();
         }
     }

@@ -76,9 +76,10 @@ namespace Demo.Repository
         public List<CommissionDetail> GetPaged(Guid userID, int pageIndex, int pageSize)
         {
             CommissionDetail detail = new CommissionDetail() {UserID = userID};
-            PagedEntity<CommissionDetail> pagedEntity = new PagedEntity<CommissionDetail>(TableName, pageIndex, pageSize)
+            var orderItem = new OrderByItem(nameof(detail.CreateTime), false);
+            PagedEntity<CommissionDetail> pagedEntity = new PagedEntity<CommissionDetail>(TableName, orderItem,
+                pageIndex, pageSize)
             {
-                OrderByItem = new OrderByItem(nameof(detail.CreateTime), false),
                 TEntity = detail,
                 WhereItems = new List<WhereItem>() {new WhereItem(nameof(detail.UserID), "=")}
             };

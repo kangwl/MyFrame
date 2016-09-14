@@ -186,10 +186,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Demo.Common.Mvc\Demo.Common.Mvc.csproj">
-      <Project>{0bf0f516-ca8b-4afa-bf71-cf4000ec8e42}</Project>
-      <Name>Demo.Common.Mvc</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Common\Demo.Common\Demo.Common.csproj">
       <Project>{92778e2f-8ab5-428e-ac8f-4235129a64bb}</Project>
       <Name>Demo.Common</Name>

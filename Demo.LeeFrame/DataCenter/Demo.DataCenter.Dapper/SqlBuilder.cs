@@ -19,7 +19,8 @@ namespace Demo.DataCenter.Dapper
     public class SqlBuilder
     {
         #region ready
-        public static DBEnum _dialect;
+
+        private static DBEnum _dialect;
 
         public static string _wrapper;
 

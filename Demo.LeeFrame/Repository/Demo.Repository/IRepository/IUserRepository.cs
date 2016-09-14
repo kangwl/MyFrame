@@ -14,7 +14,7 @@ namespace Demo.Repository.IRepository
         bool Insert(User user);
         bool Delete(List<WhereItem> whereItems, User user);
         bool Update(List<string> updateFieldList, List<WhereItem> whereItems, User user);
-        User GetOne(Guid ID, User user);
+        User GetOne(Guid ID);
         bool Exist(List<WhereItem> whereItems, User user);
         int GetRecordCount(List<WhereItem> whereItems, User user);
 
