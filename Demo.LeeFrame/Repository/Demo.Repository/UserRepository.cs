@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Demo.Common.DB;
 using Demo.Common.DB.Operate;
 using Demo.DataCenter.Dapper;
+using Demo.DataCenter.Dapper.Ext;
 using Demo.Model;
 using Demo.Repository.IRepository;
 using Demo.Repository._Base;
@@ -30,6 +31,12 @@ namespace Demo.Repository
             return base.InsertBase(insertEntity);
         }
 
+        public bool Delete(Guid id)
+        {
+            User user = new User() {ID = id};
+            List<WhereItem> whereItems = new List<WhereItem>() {new WhereItem(nameof(user.ID), "=")}; 
+            return Delete(whereItems,user);
+        }
         public bool Delete(List<WhereItem> whereItems, User user)
         {
             DeleteEntity<User> deleteEntity = new DeleteEntity<User>(TableName, whereItems, user);
@@ -94,6 +101,7 @@ namespace Demo.Repository
         {
             using (DataFactory factory = new DataFactory())
             {
+              
                 //factory.DapperConn.Query()
             }
         }

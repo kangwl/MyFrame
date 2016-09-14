@@ -133,7 +133,7 @@ namespace Demo.Console
             //CommissionDetail detail =
             //    commissionDetailRepository.GetOne(Guid.Parse("4D2EC216-A793-47BC-8C21-8997188C1583"));
             //System.Console.WriteLine(detail.Amt);
-  
+
             List<CommissionDetail> commissionDetails =
                 commissionDetailRepository.GetPaged(Guid.Parse("F1A311A0-9685-4051-8EC6-7302FEF7684F"), 1, 10);
             commissionDetails.ForEach(one => System.Console.WriteLine(one.Amt));

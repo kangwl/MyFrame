@@ -31,3 +31,5 @@
 /Demo.LeeFrame/DataCenter/Demo.DataCenter.Dapper/obj
 /Demo.LeeFrame/Service/Demo.Service.Dapper/obj
 /Demo.LeeFrame/UI/WebApp.WeiXin/obj
+/Demo.LeeFrame/Common/Demo.Common.Distributed.Session/bin/Debug
+/Demo.LeeFrame/Common/Demo.Common.Distributed.Session/obj/Debug

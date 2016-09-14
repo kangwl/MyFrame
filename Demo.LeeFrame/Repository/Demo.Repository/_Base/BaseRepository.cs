@@ -5,7 +5,7 @@ using System.Linq;
 using Dapper;
 using Demo.Common.DB;
 using Demo.Common.DB.Operate;
-using Demo.DataCenter.Dapper;
+using Demo.DataCenter.Dapper; 
 
 namespace Demo.Repository._Base
 {
@@ -25,7 +25,9 @@ namespace Demo.Repository._Base
         { 
             using (DataFactory factory=new DataFactory())
             {
+                
                 string sql = SqlBuilder.BuildInsert(insertEntity.TableName, insertEntity.InsertFieldList);
+                
                 return factory.DapperConn.Execute(sql, insertEntity.TEntity) > 0;
             }
         }

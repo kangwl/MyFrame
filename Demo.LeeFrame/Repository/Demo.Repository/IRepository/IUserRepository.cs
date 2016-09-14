@@ -12,6 +12,7 @@ namespace Demo.Repository.IRepository
     public interface IUserRepository : IRepositoryBase
     {
         bool Insert(User user);
+        bool Delete(Guid id);
         bool Delete(List<WhereItem> whereItems, User user);
         bool Update(List<string> updateFieldList, List<WhereItem> whereItems, User user);
         User GetOne(Guid ID);
