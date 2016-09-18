@@ -194,17 +194,9 @@
       <Project>{c3bd0cf9-09ae-4789-9b89-b6cbacfdb564}</Project>
       <Name>Demo.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Service\Demo.Service.Dapper\Demo.Service.Dapper.csproj">
-      <Project>{543e4fd4-b3ba-40fa-bc34-0a9fc3d1747a}</Project>
-      <Name>Demo.Service.Dapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Service\Demo.Service.Interface\Demo.Service.Interface.csproj">
-      <Project>{9a1dc39e-0c62-4cee-a64a-0f61daa3b0ca}</Project>
-      <Name>Demo.Service.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Service\Demo.Service\Demo.Service.csproj">
-      <Project>{87ad6039-f008-41eb-a081-1324f8fed9eb}</Project>
-      <Name>Demo.Service</Name>
+    <ProjectReference Include="..\..\Repository\Demo.Repository\Demo.Repository.csproj">
+      <Project>{77B0E451-4FA7-47C9-9EF1-9B7AC78856A9}</Project>
+      <Name>Demo.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

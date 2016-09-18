@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
+using System.Web.Mvc;
 using Autofac;
+using Autofac.Integration.Mvc;
 
 namespace Demo.Common.IOC
 {
@@ -76,5 +79,22 @@ namespace Demo.Common.IOC
             }
         }
 
+        #region MVC
+        //mvc
+        public static void RegisterControllers(Assembly controllAssem, params Type[] types)
+        {
+            //根据类型注册
+            //var builder = new ContainerBuilder();
+            builder.RegisterTypes(types).AsImplementedInterfaces().PropertiesAutowired();
+            builder.RegisterControllers(controllAssem).PropertiesAutowired();
+            //var container = builder.Build();
+
+        }
+        //mvc的话 最后要加上这句
+        public static void RegisterControllerEnd()
+        {
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+        } 
+        #endregion
     }
 }

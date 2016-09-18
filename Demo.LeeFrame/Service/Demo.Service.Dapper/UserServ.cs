@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Demo.DataCenter.Dapper;
+using Demo.Common.IOC;
 using Demo.Model;
+using Demo.Repository.IRepository;
 using Demo.Service.Interface;
 
 namespace Demo.Service.Dapper
 {
     public class UserServ : IUserServ<User>
     {
+        public IUserRepository UserRepository { get; set; }
+
         public string TableName
         {
             get { return "User"; }
@@ -23,7 +26,8 @@ namespace Demo.Service.Dapper
 
         public bool Insert(User user)
         {
-            throw new NotImplementedException();
+            return UserRepository.Insert(user);
+         //   throw new NotImplementedException();
         }
 
         public bool Delete(User user)

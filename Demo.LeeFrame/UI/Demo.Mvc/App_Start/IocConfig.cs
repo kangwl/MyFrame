@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Linq;
+using System.Reflection;
 using Demo.Common.IOC;
 
 namespace Demo.Mvc
@@ -7,8 +8,13 @@ namespace Demo.Mvc
     {
         public static void Regist()
         {
-            IOCMvcHelper.RegisterControllersByAssembly(Assembly.Load("Demo.Mvc"), Assembly.Load("Demo.Service.Dapper"),
-                "Demo.Service.Dapper", "Serv");
+
+            IOCHepler.Regist(Assembly.Load("Demo.Repository").GetTypes().Where(one=>one.Name.EndsWith("Repository")).ToArray());
+            IOCHepler.RegisterControllers(Assembly.Load("Demo.Mvc"),
+                Assembly.Load("Demo.Service.Dapper").GetTypes().Where(one => one.Name.EndsWith("Serv")).ToArray());
+            IOCHepler.Build();
+            IOCHepler.RegisterControllerEnd();
+
         }
     }
 }
