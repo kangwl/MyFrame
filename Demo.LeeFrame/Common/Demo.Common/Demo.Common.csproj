@@ -118,7 +118,6 @@
     <Compile Include="ExtensionMethods\WebExtensions.cs" />
     <Compile Include="ExtensionMethods\XmlExtensions.cs" />
     <Compile Include="IOC\IOCHepler.cs" />
-    <Compile Include="IOC\IOCMvcHelper.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="KuaiDiAPI.cs" />
     <Compile Include="Log.cs" />
