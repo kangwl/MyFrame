@@ -9,9 +9,9 @@ namespace Demo.Mvc
         public static void Regist()
         {
 
-            IOCHepler.Regist(Assembly.Load("Demo.Repository").GetTypes().Where(one=>one.Name.EndsWith("Repository")).ToArray());
+            //IOCHepler.Regist(Assembly.Load("Demo.Repository").GetTypes().Where(one=>one.Name.EndsWith("Repository")).ToArray());
             IOCHepler.RegisterControllers(Assembly.Load("Demo.Mvc"),
-                Assembly.Load("Demo.Service.Dapper").GetTypes().Where(one => one.Name.EndsWith("Serv")).ToArray());
+                Assembly.Load("Demo.Repository").GetTypes().Where(one => one.Name.EndsWith("Repository")).ToArray());
             IOCHepler.Build();
             IOCHepler.RegisterControllerEnd();
 
