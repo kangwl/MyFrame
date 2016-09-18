@@ -81,12 +81,12 @@ namespace Demo.Common.IOC
 
         #region MVC
         //mvc
-        public static void RegisterControllers(Assembly controllAssem, params Type[] types)
+        public static void RegisterControllers(Assembly controllerAssem, params Type[] types)
         {
             //根据类型注册
             //var builder = new ContainerBuilder();
             builder.RegisterTypes(types).AsImplementedInterfaces().PropertiesAutowired();
-            builder.RegisterControllers(controllAssem).PropertiesAutowired();
+            builder.RegisterControllers(controllerAssem).PropertiesAutowired();
             //var container = builder.Build();
 
         }
