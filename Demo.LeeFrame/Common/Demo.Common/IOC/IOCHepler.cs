@@ -26,12 +26,8 @@ namespace Demo.Common.IOC
             }
         }
 
-        public static void Build()
-        {
-            container = builder.Build();
-        }
-
-        public static void Regist<T>(string name="")
+        #region Regist
+        public static void Regist<T>(string name = "")
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -70,6 +66,14 @@ namespace Demo.Common.IOC
             builder.RegisterType<T>().As<IT>().SingleInstance();
         }
 
+
+        #endregion
+
+        public static void Build()
+        {
+            container = builder.Build();
+        }
+
         public static TIT Resolve<TIT>(string name = "")
         {
             using (var scop = container.BeginLifetimeScope())
@@ -91,7 +95,7 @@ namespace Demo.Common.IOC
 
         }
         //mvc的话 最后要加上这句
-        public static void RegisterControllerEnd()
+        public static void ResolveControllerBuild()
         {
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         } 

@@ -13,7 +13,7 @@ namespace Demo.Mvc
             IOCHepler.RegisterControllers(Assembly.Load("Demo.Mvc"),
                 Assembly.Load("Demo.Repository").GetTypes().Where(one => one.Name.EndsWith("Repository")).ToArray());
             IOCHepler.Build();
-            IOCHepler.RegisterControllerEnd();
+            IOCHepler.ResolveControllerBuild();
 
         }
     }
