@@ -7,7 +7,7 @@ namespace Demo.Common.Redis
     public static partial class RedisHelper
     {
         public static bool SetAddModelEXT<TModel>(string key, TModel tModel,
-            CommandFlags flags = CommandFlags.None) where TModel : class
+            CommandFlags flags = CommandFlags.None) 
         {
             return Db.SetAdd(key, tModel.ToJson(), flags);
             //Db.SetCombine()
@@ -71,7 +71,7 @@ namespace Demo.Common.Redis
         }
 
         public static TModel SetPopModelEXT<TModel>(string key,
-            CommandFlags flags = CommandFlags.None) where TModel : class
+            CommandFlags flags = CommandFlags.None) 
         {
             var redisValue = Db.SetPop(key, flags);
             return redisValue.ToModel<TModel>();

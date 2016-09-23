@@ -7,6 +7,8 @@ using Demo.Common.IOC;
 using Demo.Model;
 using Demo.Repository.IRepository;
 using Demo.Service.Interface;
+using Foundatio;
+using Foundatio.Logging;
 
 namespace Demo.Service.Dapper
 {
@@ -43,7 +45,10 @@ namespace Demo.Service.Dapper
         public List<User> GetPaged<TKey>(Func<User, bool> funcWhere, Func<User, TKey> funcOrderBy, int pageIndex,
             int pageSize, bool asc = true)
         {
+         
+
             throw new NotImplementedException();
+             
         }
     }
 

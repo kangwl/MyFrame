@@ -55,8 +55,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -117,6 +119,7 @@
     <Compile Include="ExtensionMethods\ValidationExtensions.cs" />
     <Compile Include="ExtensionMethods\WebExtensions.cs" />
     <Compile Include="ExtensionMethods\XmlExtensions.cs" />
+    <Compile Include="IniHelper.cs" />
     <Compile Include="IOC\IOCHepler.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="KuaiDiAPI.cs" />
@@ -135,6 +138,7 @@
     <Compile Include="web\HttpHelper.cs" />
     <Compile Include="web\HttpWebHelper.cs" />
     <Compile Include="web\WebMethods.cs" />
+    <Compile Include="WinServHelper.cs" />
     <Compile Include="XmlHelper.cs" />
   </ItemGroup>
   <ItemGroup>

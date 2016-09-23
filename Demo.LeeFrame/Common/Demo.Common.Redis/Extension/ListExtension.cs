@@ -16,9 +16,13 @@ namespace Demo.Common.Redis
         /// <param name="flags"></param>
         /// <returns></returns>
         public static long ListLeftPushModelEXT<TModel>(string key, TModel tModel,
-            When when = When.Always, CommandFlags flags = CommandFlags.None) where TModel : class, new()
+            When when = When.Always, CommandFlags flags = CommandFlags.None)
         {
             return Db.ListLeftPush(key, tModel.ToJson(), when, flags);
+        }
+        public static T ListRightPopModelEXT<T>(string key)
+        {
+            return Db.ListRightPop(key).ToModel<T>();
         }
 
         public static long ListRightPushModelEXT<TModel>(string key, TModel tModel,

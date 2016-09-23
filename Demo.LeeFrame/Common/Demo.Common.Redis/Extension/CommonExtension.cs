@@ -4,7 +4,7 @@ namespace Demo.Common.Redis
 {
     public static class CommonExtension
     {
-        public static TModel ToModel<TModel>(this RedisValue redisValue) where TModel : class
+        public static TModel ToModel<TModel>(this RedisValue redisValue) 
         {
             if (redisValue.HasValue)
             {

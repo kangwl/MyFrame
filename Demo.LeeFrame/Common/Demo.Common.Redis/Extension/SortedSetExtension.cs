@@ -6,10 +6,9 @@ namespace Demo.Common.Redis
 {
     public static partial class RedisHelper
     {
-        public static bool SortedSetAddModelEXT<TModel>(string key, TModel tModel, double score,
-            CommandFlags flags = CommandFlags.None) where TModel : class
+        public static bool SortedSetAddModelEXT<TModel>(string key, TModel tModel, double score)
         {
-            return Db.SortedSetAdd(key, tModel.ToJson(), score, flags);
+            return Db.SortedSetAdd(key, tModel.ToJson(), score);
         }
 
 

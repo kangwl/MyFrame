@@ -459,13 +459,13 @@ public static class StringExtension
 
 public static class ModelExtension
 {
-    public static string ToJson<T>(this T tmodel) where T : class
+    public static string ToJson<T>(this T tmodel)
     {
         var jsonStr = JsonHelper<T>.Serialize2Object(tmodel);
         return jsonStr;
     }
 
-    public static T ToModel<T>(this string json) where T : class
+    public static T ToModel<T>(this string json) 
     {
         var tmodel = JsonHelper<T>.DeserializeFromStr(json);
         return tmodel;

@@ -8,6 +8,19 @@ namespace Demo.DataCenter.Dapper
     public class DataFactory : IDisposable
     {
 
+        public DataFactory()
+        {
+           // DbType = DBEnum.MSSQL;
+            if (DbProviderStr == "mysql")
+            {
+                DbType = DBEnum.MySQL;
+            }
+            else if (DbProviderStr == "mssql")
+            {
+                DbType = DBEnum.MSSQL;
+            }
+        }
+
         private static readonly string Connstr =
             System.Configuration.ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
@@ -18,21 +31,19 @@ namespace Demo.DataCenter.Dapper
 
         private IDbConnection GetOpenConnection()
         {
-            DbType = DBEnum.MSSQL;
             IDbConnection connection;
-            if (DbProviderStr == "mysql")
+
+            switch (DbType)
             {
-                DbType = DBEnum.MySQL;
-                connection = new MySqlConnection(Connstr);
-            }
-            else if (DbProviderStr == "mssql")
-            {
-                DbType = DBEnum.MSSQL;
-                connection = new SqlConnection(Connstr);
-            }
-            else
-            {
-                connection = new SqlConnection(Connstr);
+                case DBEnum.MSSQL:
+                    connection = new SqlConnection(Connstr);
+                    break;
+                case DBEnum.MySQL:
+                    connection = new MySqlConnection(Connstr);
+                    break;
+                default:
+                    connection = new SqlConnection(Connstr);
+                    break;
             }
 
             connection.Open();

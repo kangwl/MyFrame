@@ -74,7 +74,7 @@ namespace Demo.Common.Redis
         /// <summary>
         ///     数据库操作
         /// </summary>
-        private static IDatabase Db => connection.GetDatabase();
+        public static IDatabase Db => connection.GetDatabase();
 
         //server
         // private static IServer Server => connection.GetServer(options.EndPoints[0]);
@@ -92,7 +92,10 @@ namespace Demo.Common.Redis
         {
             return Db.KeyExpire(key, timeSpan);
         }
-
+        public static bool ExistKey(string key)
+        {
+            return Db.KeyExists(key: key);
+        }
         #endregion
 
         #region hash
@@ -282,7 +285,10 @@ namespace Demo.Common.Redis
                 sortNumeric ? SortType.Numeric : SortType.Alphabetic);
             return redisValues.Select(one => one.ToStringEXT());
         }
-
+        public static long ListLength(string key)
+        {
+            return Db.ListLength(key);
+        }
         #endregion
 
         #region set
@@ -446,6 +452,39 @@ namespace Demo.Common.Redis
         {
             var ret = Db.StringIncrement(key, value);
             return ret;
+        }
+
+        #endregion
+
+        #region subscribe
+
+        public static void Subscribe<T>(string redisChannel, Action<T> actionBack) where T : class
+        {
+            ISubscriber subscriber = Db.Multiplexer.GetSubscriber();
+
+            subscriber.Subscribe(redisChannel, (channel, value) =>
+            {
+                actionBack(value.ToModel<T>());
+            });
+        }
+
+        public static void Publish<T>(string redisChannel, T t) where T : class
+        {
+
+            ISubscriber subscriber = Db.Multiplexer.GetSubscriber();
+            subscriber.Publish(redisChannel, t.ToJson());
+        }
+
+        public static void UnSubscribe(string redisChannel)
+        {
+            ISubscriber subscriber = Db.Multiplexer.GetSubscriber();
+            subscriber.Unsubscribe(redisChannel);
+        }
+
+        public static void UnSubscribeAll()
+        {
+            ISubscriber subscriber = Db.Multiplexer.GetSubscriber();
+            subscriber.UnsubscribeAll();
         }
 
         #endregion
