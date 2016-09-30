@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization.Formatters.Soap;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,8 +77,9 @@ namespace ConsoleApplication1
             //PreLoginResponse preLoginResponse = JsonHelper<PreLoginResponse>.DeserializeFromStr(str); 
             #endregion
 
-            PreLoginResponse preLoginResponse = PreLogin();
-            DoLoginWithInput(preLoginResponse);
+            //PreLoginResponse preLoginResponse = PreLogin();
+            //DoLoginWithInput(preLoginResponse);
+            Test();
         }
 
         public static PreLoginResponse PreLogin()
@@ -243,6 +250,40 @@ namespace ConsoleApplication1
 
             var cipherbytes = rsa.Encrypt(content, false);
             return cipherbytes;
+        }
+
+        public static void Test()
+        {
+            PreLoginRequestImpl loginRequestImpl = new PreLoginRequestImpl()
+            { 
+                username = "kangwenli",
+                token = Token,
+                functionName = "preLogin",
+                uuid = Uuid,
+                request = new PreLoginRequest()
+            };
+
+            System.Runtime.Serialization.IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("D:\\PreLogin1.DATA", FileMode.Create);
+            using (stream)
+            {
+                formatter.Serialize(stream, loginRequestImpl);
+            }
+
+            IFormatter formatter1 = new BinaryFormatter();
+            Stream stream1 = File.Open("D:\\PreLogin1.DATA", FileMode.Open);
+            PreLoginRequestImpl obj = (PreLoginRequestImpl)formatter1.Deserialize(stream1);
+            Console.WriteLine(obj.username);
+
+            #region json
+            //JsonHelper<PreLoginRequestImpl>.Serialize2File(loginRequestImpl, "D:\\PreLogin1.json.DATA");
+            //PreLoginRequestImpl model = JsonHelper<PreLoginRequestImpl>.DeserializeFromFile("D:\\PreLogin1.json.DATA");
+            //Console.WriteLine(model.username); 
+            #endregion
+
+            
+
+            Console.Read();
         }
     }
  

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.Model
 {
+    [Serializable]
     public class PreLoginRequestImpl
     {
         public PreLoginRequestImpl()
