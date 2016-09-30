@@ -260,6 +260,12 @@ namespace Demo.Common.web
                 var postString = postStr;
                 var responseData = "";
                 webRequest = WebRequest.Create(urlStr) as HttpWebRequest;
+                //
+                webRequest.Headers.Add("UUID:767474055kwl");//,Content-Type:data/gzencode and rsa public encrypt;charset=UTF-8
+                webRequest.Headers.Add("ACCOUNT_TYPE:1 ");
+                webRequest.ContentType = "data/gzencode and rsa public encrypt;text/json;charset=UTF-8";
+                //text/json; charset=utf-8
+                 
                 webRequest.Method = "POST";
                 webRequest.ServicePoint.Expect100Continue = false;
                 webRequest.Timeout = 1000*60;
@@ -268,6 +274,8 @@ namespace Demo.Common.web
                 requestWriter = new StreamWriter(webRequest.GetRequestStream());
                 try
                 {
+                    //byte[] zip = ZipHelper.Compress(json.ToByteArray());
+                    //zip = RSAUtil.encryptByPublicKey(zip, publicKey);
                     requestWriter.Write(postString);
                 }
                 catch (Exception ex2)
@@ -318,7 +326,7 @@ namespace Demo.Common.web
         /// </summary>
         /// <param name="webRequest">The request object.</param>
         /// <returns>The response data.</returns>
-        private static string WebResponseGet(HttpWebRequest webRequest)
+        public static string WebResponseGet(HttpWebRequest webRequest)
         {
             StreamReader responseReader = null;
             var responseData = "";

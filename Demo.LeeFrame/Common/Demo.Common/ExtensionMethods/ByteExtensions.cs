@@ -70,7 +70,11 @@ namespace Demo.Common.ExtensionMethods
 
             return result;
         }
+        public static string Base64Encode(this byte[] source)
+        { 
 
+            return Convert.ToBase64String(source);
+        }
         /// <summary>
         ///     Convert BitArray to binary digit string.
         /// </summary>

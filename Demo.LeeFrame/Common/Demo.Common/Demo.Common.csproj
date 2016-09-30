@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CacheHelper.cs" />
+    <Compile Include="CGZipUtil.cs" />
     <Compile Include="CookieHepler.cs" />
     <Compile Include="DB\Operate\DeleteEntity.cs" />
     <Compile Include="DB\Operate\InsertEntity.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="ExtensionMethods\ValidationExtensions.cs" />
     <Compile Include="ExtensionMethods\WebExtensions.cs" />
     <Compile Include="ExtensionMethods\XmlExtensions.cs" />
+    <Compile Include="GZipUtil.cs" />
     <Compile Include="IniHelper.cs" />
     <Compile Include="IOC\IOCHepler.cs" />
     <Compile Include="JsonHelper.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="InternalLogger.cs" />
     <Compile Include="Reflection\PropertyAccessor.cs" />
     <Compile Include="Reflection\TypeLoader.cs" />
+    <Compile Include="RSAHelper.cs" />
     <Compile Include="StringHelper.cs" />
     <Compile Include="TimeConvert.cs" />
     <Compile Include="web\HttpHelper.cs" />
@@ -140,6 +143,7 @@
     <Compile Include="web\WebMethods.cs" />
     <Compile Include="WinServHelper.cs" />
     <Compile Include="XmlHelper.cs" />
+    <Compile Include="ZipHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

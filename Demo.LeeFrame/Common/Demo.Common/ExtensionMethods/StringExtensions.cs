@@ -647,6 +647,8 @@ namespace Demo.Common.ExtensionMethods
             return Convert.ToBase64String(buffer);
         }
 
+        
+
         /// <summary>
         ///     Retrieves left part substring from this instance. The substring ends at the first occurrence of the specified
         ///     string position. If the specified string is not found, the return value is <see cref="F:System.String.Empty" />.

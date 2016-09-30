@@ -2,4 +2,36 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2>Index</h2>
+<script src="~/scripts/knockout-3.4.0.js"></script>
+<h2 data-bind="text:showname"></h2>
+<div id="div-vm">
+    <input type="text" value="" placeholder="请输入姓名" data-bind="value:showname"/>
+    <label data-bind="text:showname"></label>
+
+    <ul data-bind="foreach:peoples">
+        <li data-bind="text:name+','+age"></li>
+    </ul>
+    <select data-bind="options:peoples ,optionsText:'name',optionsValue:'age',value:selectPeople,event:{change:selectChange}"></select>
+    <div id="page" data-bind="template:'student'">
+
+    </div>
+</div>
+<script data-template-name="student">
+    
+</script>
+<script>
+    var vm = {
+        
+    };
+    vm.showname = ko.observable("sd");
+    vm.peoples = [
+        { name: "kwl1", age: 12 },
+        { name: "kwl2", age: 13 }
+    ];
+    vm.selectPeople = ko.observable(0);
+    vm.selectChange=function() {
+        alert(vm.selectPeople());
+    }
+    ko.applyBindings(vm, document.getElementById("div-vm"));
+</script>
+ 

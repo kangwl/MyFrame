@@ -134,6 +134,44 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="baidutj\api\seclogin\SecLoginService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="baidutj\api\Base64.cs" />
+    <Compile Include="baidutj\api\CipherUtil.cs" />
+    <Content Include="baidutj\api\JacksonUtil.java" />
+    <Compile Include="baidutj\api\JsonConnection.cs" />
+    <Compile Include="baidutj\api\JsonEnvelop.cs" />
+    <Compile Include="baidutj\api\LoginConnection.cs" />
+    <Compile Include="baidutj\api\login\AbstractLoginRequest.cs" />
+    <Compile Include="baidutj\api\login\AuthCode.cs" />
+    <Compile Include="baidutj\api\login\DoLoginRequest.cs" />
+    <Compile Include="baidutj\api\login\DoLoginRequestImpl.cs" />
+    <Compile Include="baidutj\api\login\DoLoginResponse.cs" />
+    <Compile Include="baidutj\api\login\DoLogoutRequest.cs" />
+    <Compile Include="baidutj\api\login\DoLogoutRequestImpl.cs" />
+    <Compile Include="baidutj\api\login\DoLogoutResponse.cs" />
+    <Compile Include="baidutj\api\login\LoginRequest.cs" />
+    <Compile Include="baidutj\api\login\LoginService.cs" />
+    <Compile Include="baidutj\api\login\PreLoginRequest.cs" />
+    <Compile Include="baidutj\api\login\PreLoginRequestImpl.cs" />
+    <Compile Include="baidutj\api\login\PreLoginResponse.cs" />
+    <Compile Include="baidutj\api\login\Question.cs" />
+    <Compile Include="baidutj\api\login\SendSmsRequest.cs" />
+    <Compile Include="baidutj\api\login\SendSmsRequestImpl.cs" />
+    <Compile Include="baidutj\api\login\SendSmsResponse.cs" />
+    <Compile Include="baidutj\api\login\VerifyQuestionRequest.cs" />
+    <Compile Include="baidutj\api\login\VerifyQuestionRequestImpl.cs" />
+    <Compile Include="baidutj\api\login\VerifyQuestionResponse.cs" />
+    <Compile Include="baidutj\api\login\VerifySmsRequest.cs" />
+    <Compile Include="baidutj\api\login\VerifySmsRequestImpl.cs" />
+    <Compile Include="baidutj\api\login\VerifySmsResponse.cs" />
+    <Compile Include="baidutj\api\RSAUtil.cs" />
+    <Compile Include="baidutj\seclogin_test\SecLoginProxy.cs" />
+    <Compile Include="baidutj\seclogin_test\SecLoginTest.cs" />
+    <Content Include="baidutj\TextFile1.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

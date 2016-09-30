@@ -16,7 +16,8 @@ using Demo.Common.IOC;
 using Demo.Common.Redis;
 using Demo.Common.Redis.Queue;
 using Demo.Common.Reflection;
-using Demo.Common.web; 
+using Demo.Common.web;
+using Demo.Console.baidutj.seclogin_test;
 using Demo.Model;
 using Demo.Repository;
 using Demo.Repository.IRepository;
@@ -47,6 +48,7 @@ namespace Demo.Console
         static void Main(string[] args)
         {
             #region zs
+
             // //IUserServ<User> userServ = new UserServ();
             // //Guid uid = Guid.NewGuid();
             // ////userServ.Insert(new User()visua
@@ -166,9 +168,17 @@ namespace Demo.Console
             //TcpClient tcpClient = new TcpClient(AddressFamily.InterNetwork);
             //tcpClient.Connect("server.ngrok.cc", 15550);
             //NetworkStream stream = tcpClient.GetStream(); 
+
             #endregion
-            Enqueue();
-            Dequeue();
+
+            //Enqueue();
+            //Dequeue();
+            //System.Console.Read();
+
+            //https://api.baidu.com/json/tongji/v1/ReportService/getSiteList
+
+            // SecLoginTest.TJLoginTest();
+            System.Console.WriteLine(DateTime.Now.AddYears(9999));
             System.Console.Read();
         }
 
