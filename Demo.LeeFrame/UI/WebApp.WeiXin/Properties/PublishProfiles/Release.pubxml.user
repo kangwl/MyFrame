@@ -113,10 +113,10 @@
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/WebApp.WeiXin.dll">
-      <publishTime>10/09/2016 16:13:59</publishTime>
+      <publishTime>10/13/2016 17:44:47</publishTime>
     </File>
     <File Include="bin/XK.WeiXin.dll">
-      <publishTime>10/09/2016 16:13:56</publishTime>
+      <publishTime>10/13/2016 17:44:44</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
       <publishTime>01/28/2015 04:04:32</publishTime>
@@ -161,7 +161,7 @@
       <publishTime>09/08/2016 11:00:47</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/08/2016 11:01:54</publishTime>
+      <publishTime>10/13/2016 17:41:06</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.js">
       <publishTime>09/08/2016 11:00:53</publishTime>

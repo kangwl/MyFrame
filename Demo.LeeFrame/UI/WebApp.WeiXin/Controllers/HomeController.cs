@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MyFilms.Core;
 
 namespace WebApp.WeiXin.Controllers
 {
@@ -11,8 +12,10 @@ namespace WebApp.WeiXin.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            string accesstoken = XK.WeiXin.Author.AccessToken.Instance.Value;
-            ViewBag.AccessToken = accesstoken;
+            //string accesstoken = XK.WeiXin.Author.AccessToken.Instance.Value;
+            //ViewBag.AccessToken = accesstoken;
+            string url = FilmAnalyze.GetVipFilms();
+            return Redirect("/film.html");
             return View();
         }
     }
