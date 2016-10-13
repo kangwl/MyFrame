@@ -134,6 +134,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="html5\index.html" />
+    <Content Include="page\table.html" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -152,6 +153,14 @@
     <Content Include="scripts\knockout-3.4.0.debug.js" />
     <Content Include="scripts\knockout-3.4.0.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\tableExport\html2canvas.js" />
+    <Content Include="scripts\tableExport\jquery.base64.zh.js" />
+    <Content Include="scripts\tableExport\jquery.base64.js" />
+    <Content Include="scripts\tableExport\jspdf\jspdf.js" />
+    <Content Include="scripts\tableExport\jspdf\libs\base64.js" />
+    <Content Include="scripts\tableExport\jspdf\libs\sprintf.js" />
+    <Content Include="scripts\tableExport\tableExport.zh.js" />
+    <Content Include="scripts\tableExport\tableExport.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -180,6 +189,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="scripts\tableExport\tableExport.jquery.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -72,7 +72,7 @@ namespace XK.WeiXin.Main.Logic {
             keywordFunc = keywordFuncs.FirstOrDefault(d => d.Key == Content.ToLower()).Value;
             if (keywordFunc == null) {
                 Log log=new Log();
-                log.WriteLog("Event:"+XmlDoc.InnerText);
+                log.WriteLog("Event:"+XmlDoc.InnerText); 
                 return "";
             }
             return keywordFunc();
@@ -85,8 +85,40 @@ namespace XK.WeiXin.Main.Logic {
 
         private void AddKeyWordFunc() {
             keywordFuncs.Add("subscribe", CreateSendMsg);
-            keywordFuncs.Add("scan", CreateSendMsg); 
+            keywordFuncs.Add("scan", CreateSendMsg);
+            clickFuncs.Add("bdw", Create_bdw_msg);
+            clickFuncs.Add("dw", Create_dw_msg);
+            keywordFuncs.Add("click",CreateClickMsg);
+            //keywordFuncs.Add("bdw",Create_bdw_msg);
+            //keywordFuncs.Add("dw", Create_dw_msg);
         }
+
+        private readonly Dictionary<string, Func<string>> clickFuncs = new Dictionary<string, Func<string>>();
+        private string CreateClickMsg()
+        {
+            string eventKey = XmlHelper.GetXmlNodeTextByXpath(XmlDoc, "//EventKey");
+            var clickFunc = clickFuncs.FirstOrDefault(d => d.Key == eventKey.ToLower()).Value;
+            return clickFunc(); 
+        }
+
+        private string Create_bdw_msg()
+        {
+            string bdwMsg = "你说你傻不傻";
+            string msg = string.Format(Text.sendXml, FromUserName, ToUserName,
+                TimeConvert.GetDateTimeStamp(DateTime.Now), bdwMsg);
+
+            return msg;
+        }
+        private string Create_dw_msg()
+        {
+            string bdwMsg = "你还真点我啊";
+            string msg = string.Format(Text.sendXml, FromUserName, ToUserName,
+                TimeConvert.GetDateTimeStamp(DateTime.Now), bdwMsg);
+
+            return msg;
+        }
+        private string ToUserName { get { return XmlHelper.GetXmlNodeTextByXpath(XmlDoc, "//ToUserName"); } }
+        private string FromUserName { get { return XmlHelper.GetXmlNodeTextByXpath(XmlDoc, "//FromUserName"); } }
 
         public string CreateSendMsg() {
             StringBuilder sb = new StringBuilder();
@@ -94,8 +126,8 @@ namespace XK.WeiXin.Main.Logic {
             sb.Append("love ❤");
 
 
-            string ToUserName = XmlHelper.GetXmlNodeTextByXpath(XmlDoc, "//ToUserName");
-            string FromUserName = XmlHelper.GetXmlNodeTextByXpath(XmlDoc, "//FromUserName");
+           // string ToUserName = XmlHelper.GetXmlNodeTextByXpath(XmlDoc, "//ToUserName");
+           // string FromUserName = XmlHelper.GetXmlNodeTextByXpath(XmlDoc, "//FromUserName");
 
             string msg = string.Format(Text.sendXml, FromUserName, ToUserName,
                 TimeConvert.GetDateTimeStamp(DateTime.Now), sb.ToString());

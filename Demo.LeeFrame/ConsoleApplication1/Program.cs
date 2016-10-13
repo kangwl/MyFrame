@@ -11,8 +11,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Formatters.Soap;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using CachingFramework.Redis;
+using CachingFramework.Redis.Contracts;
+using CachingFramework.Redis.Serializers;
 using ConsoleApplication1.Model;
+using ConsoleApplication1.sms;
 using Demo.Common;
 using Demo.Common.ExtensionMethods;
 using Demo.Console.baidutj.api;
@@ -79,8 +84,32 @@ namespace ConsoleApplication1
 
             //PreLoginResponse preLoginResponse = PreLogin();
             //DoLoginWithInput(preLoginResponse);
-            Test();
+            //Test();
+
+            // CachingFramework.Redis.Context context = new Context();//"localhost:6379", new RawSerializer()
+            // context.Cache.SetObject("user:1", "kwl1");
+            // //string user = context.Cache.GetObject<string>("user:1");
+            //// string v = context.Cache.FetchObject<string>("user:3", () => "kwl3", new string[] {"sd", "kkk"});
+            // var lst = context.Cache.GetObjectsByTag<string>("kkk");
+            // foreach (string s in lst)
+            // {
+            //     Console.WriteLine(s);
+            // }
+            // context.PubSub.Subscribe<string>("radio", r => { Console.WriteLine("radio:" + r); });
+            // for (int i = 0; i < 10; i++)
+            // {
+            //     context.PubSub.Publish("radio", "kwl" + i);
+            //     Thread.Sleep(1000);
+            // }
+
+
+            //Console.WriteLine(user);
+            //Console.WriteLine(v);
+
+            SMSLogic.SendVerifyCode();
+            Console.Read();
         }
+      
 
         public static PreLoginResponse PreLogin()
         {

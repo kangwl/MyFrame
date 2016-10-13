@@ -96,6 +96,17 @@ namespace Demo.Common.Redis
         {
             return Db.KeyExists(key: key);
         }
+
+        public static TimeSpan? GetKeyTTL(string key)
+        {
+            TimeSpan? timeSpan = Db.KeyTimeToLive(key);
+            return timeSpan;
+        }
+        public static bool Remove(string key)
+        {
+            return Db.KeyDelete(key);
+        }
+
         #endregion
 
         #region hash

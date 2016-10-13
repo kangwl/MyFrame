@@ -114,6 +114,17 @@ namespace Demo.Common.web
             return request.GetResponse() as HttpWebResponse;
         }
 
+        public static string WebResponse2Str(HttpWebResponse webResponse,Encoding encoding)
+        { 
+            using (var stream = webResponse.GetResponseStream())
+            {
+                using (var reader2 = new StreamReader(stream, encoding))
+                {
+                    return reader2.ReadToEnd();
+                }
+            }
+        }
+
         private static bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain,
             SslPolicyErrors errors)
         {
@@ -260,10 +271,7 @@ namespace Demo.Common.web
                 var postString = postStr;
                 var responseData = "";
                 webRequest = WebRequest.Create(urlStr) as HttpWebRequest;
-                //
-                webRequest.Headers.Add("UUID:767474055kwl");//,Content-Type:data/gzencode and rsa public encrypt;charset=UTF-8
-                webRequest.Headers.Add("ACCOUNT_TYPE:1 ");
-                webRequest.ContentType = "data/gzencode and rsa public encrypt;text/json;charset=UTF-8";
+        
                 //text/json; charset=utf-8
                  
                 webRequest.Method = "POST";

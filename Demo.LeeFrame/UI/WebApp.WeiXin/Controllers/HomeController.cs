@@ -11,6 +11,8 @@ namespace WebApp.WeiXin.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            string accesstoken = XK.WeiXin.Author.AccessToken.Instance.Value;
+            ViewBag.AccessToken = accesstoken;
             return View();
         }
     }
