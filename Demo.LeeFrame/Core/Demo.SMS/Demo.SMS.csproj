@@ -58,6 +58,7 @@
     <Compile Include="part\ISMS.cs" />
     <Compile Include="part\JuHeSMS.cs" />
     <Compile Include="part\MiaoDiSMS.cs" />
+    <Compile Include="part\SMSTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SMSMain.cs" />
   </ItemGroup>

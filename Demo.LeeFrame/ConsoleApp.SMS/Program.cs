@@ -31,7 +31,7 @@ namespace ConsoleApp.SMS
 
             //MiaoDiSMS miaoDiSms = new MiaoDiSMS(mobileNO, verifyCode);
             // miaoDiSms.GetDevelopInfo();
-            bool ok = SMSMain.SendVerifyCode(new AliDayuSMS(mobileNO, verifyCode));
+            bool ok = SMSMain.SendVerifyCode(new AliDayuSMS(mobileNO, verifyCode) {SmsType = SMSTypeEnum.文本});
 
             Console.WriteLine(ok);
 

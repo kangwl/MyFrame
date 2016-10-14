@@ -17,6 +17,7 @@ namespace Demo.SMS.part
         }
         public string MobileNO { get; set; }
         public string VerifyCode { get; set; }
+        public SMSTypeEnum SmsType { get; set; }
 
         private const string accountSid = "275c36f4549b4e439776a9b1e96b4f78";
         private const string authToken = "aaf12a72aa7b4042bb7a0a731b0f27cd";

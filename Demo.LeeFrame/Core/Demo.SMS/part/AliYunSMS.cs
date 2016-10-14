@@ -4,6 +4,7 @@ using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Profile;
 using Aliyun.Acs.Sms.Model.V20160927;
 using Demo.Common;
+using Demo.SMS.part;
 
 namespace Demo.SMS
 {
@@ -25,6 +26,8 @@ namespace Demo.SMS
         /// 验证码
         /// </summary>
         public string VerifyCode { get; set; }
+
+        public SMSTypeEnum SmsType { get; set; }
 
         /// <summary>
         /// 短信签名

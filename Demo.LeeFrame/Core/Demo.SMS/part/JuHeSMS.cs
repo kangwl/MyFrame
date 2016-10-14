@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 using Demo.Common;
+using Demo.SMS.part;
 using Xfrog.Net;
 
 namespace Demo.SMS
@@ -20,6 +21,7 @@ namespace Demo.SMS
 
         public string MobileNO { get; set; }
         public string VerifyCode { get; set; }
+        public SMSTypeEnum SmsType { get; set; }
 
 
         public bool SendVerifyCode()
