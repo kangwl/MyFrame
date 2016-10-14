@@ -34,18 +34,20 @@ namespace Demo.SMS.part
         public bool SendVerifyCode()
         {
 
-            ITopClient client = new DefaultTopClient(serverUrl, appKey, appSecret);
-            AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
-            req.Extend = UserID;
-            req.SmsType = "normal";
-            req.SmsFreeSignName = "小康";//短信签名
-            req.SmsParam = "{\"company\":\"" + IdenParam + "\",\"number\":\"" + VerifyCode + "\"}";
-            req.RecNum = MobileNO;
-            req.SmsTemplateCode = "SMS_17910073";//SMS_17910073,SMS_17435106
-            AlibabaAliqinFcSmsNumSendResponse rsp = client.Execute(req);
-            //Console.WriteLine(rsp.Body);
+            //ITopClient client = new DefaultTopClient(serverUrl, appKey, appSecret);
+            //AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
+            //req.Extend = UserID;
+            //req.SmsType = "normal";
+            //req.SmsFreeSignName = "小康";//短信签名
+            //req.SmsParam = "{\"company\":\"" + IdenParam + "\",\"number\":\"" + VerifyCode + "\"}";
+            //req.RecNum = MobileNO;
+            //req.SmsTemplateCode = "SMS_17910073";//SMS_17910073,SMS_17435106
+            //AlibabaAliqinFcSmsNumSendResponse rsp = client.Execute(req);
+            ////Console.WriteLine(rsp.Body);
 
-            return rsp.Result.Success;
+            //return rsp.Result.Success;
+
+            return SendVerifyCodeSingleCall();
         }
         //语音验证码
         public bool SendVerifyCodeSingleCall()
@@ -53,10 +55,10 @@ namespace Demo.SMS.part
             ITopClient client = new DefaultTopClient(serverUrl, appKey, appSecret);
             AlibabaAliqinFcTtsNumSinglecallRequest req = new AlibabaAliqinFcTtsNumSinglecallRequest();
             req.Extend = UserID;
-            req.TtsParam = "{\"AckNum\":\"123456\"}";
+            req.TtsParam = "{\"name\":\"小康\",\"code\":\"" + VerifyCode + "\"}";
             req.CalledNum = MobileNO;
-            req.CalledShowNum = "051482043261";
-            req.TtsCode = "TTS_10001";
+            req.CalledShowNum = "051482043260";
+            req.TtsCode = "TTS_17900069";
             AlibabaAliqinFcTtsNumSinglecallResponse rsp = client.Execute(req);
             //Console.WriteLine(rsp.Body);
 
