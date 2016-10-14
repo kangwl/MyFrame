@@ -14,9 +14,14 @@ namespace WebApp.WeiXin.Controllers
         {
             //string accesstoken = XK.WeiXin.Author.AccessToken.Instance.Value;
             //ViewBag.AccessToken = accesstoken;
-            string url = FilmAnalyze.GetVipFilms();
-            return Redirect("/film.html");
+           
             return View();
+        }
+
+        public ActionResult Film()
+        {
+            string url = FilmAnalyze.GetVipFilms();
+            return Redirect("/film.html"); 
         }
     }
 }
