@@ -10,6 +10,7 @@ using Demo.Model;
 using Exceptionless;
 using Demo.Repository.IRepository;
 using System.Net.Http;
+using Demo.Excel.Helper;
 
 namespace Demo.Mvc.Controllers
 {
@@ -34,7 +35,7 @@ namespace Demo.Mvc.Controllers
                 //    CreateTime = DateTime.Now,
                 //    UpdateTime = DateTime.Now
                 //};
-                
+
                 //bool ok = UserRepository.Insert(user);
 
                 //Model.User user = new User();
@@ -46,7 +47,7 @@ namespace Demo.Mvc.Controllers
                 //    new OrderByItem(nameof(user.CreateTime), false),
                 //    whereItems, user);
 
-
+                ExportExcel();
 
 
             }
@@ -59,7 +60,33 @@ namespace Demo.Mvc.Controllers
           
             return View();
         }
-
+        public class UserManagerTest
+        {
+            [ExcelInfo("名称")]
+            public string Name { get; set; }
+            [ExcelInfo("年龄", ExcelStyle = ExcelStyle.left)]
+            public int Old { get; set; }
+            [ExcelInfo("金额", ExcelStyle = ExcelStyle.money)]
+            public double Money { get; set; }
+            [ExcelInfo("时间", ExcelStyle = ExcelStyle.date | ExcelStyle.right)]
+            public DateTime CreateDate { get; set; }
+        }
+        public void ExportExcel()
+        {
+            List<UserManagerTest> testList = new List<UserManagerTest>
+            {
+                new UserManagerTest
+                {
+                    CreateDate = DateTime.Now, Name = "王二狗", Old = 20, Money=3.76
+                },
+                new UserManagerTest
+                {
+                    CreateDate = DateTime.Now, Name = "李铁梅", Old = 30,Money=9.78
+                }
+            };
+            ExcelDownload downLoad = new ExcelDownload("员工信息", "年度员工汇总");
+            downLoad.Export(testList);
+        }
 
         #region 断点续传
         [HttpGet]

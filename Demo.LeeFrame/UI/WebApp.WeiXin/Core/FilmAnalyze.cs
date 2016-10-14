@@ -67,7 +67,7 @@ namespace MyFilms.Core
             filmModels.ForEach(one =>
             {
                 string li =
-                    $"<li><a href={one.Href} title={one.Title}><img src={one.ImgSrc}/></a><div>{one.Title}</div></li>";
+                    $"<li><a href={one.Href} title={one.Title}><img src={one.ImgSrc}/></a><div><a href={one.Href}>{one.Title}</a></div></li>";
                 sb.Append(li);
             });
         

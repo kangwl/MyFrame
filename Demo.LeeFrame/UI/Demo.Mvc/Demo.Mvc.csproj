@@ -206,6 +206,10 @@
       <Project>{92778e2f-8ab5-428e-ac8f-4235129a64bb}</Project>
       <Name>Demo.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\Demo.Excel.Helper\Demo.Excel.Helper.csproj">
+      <Project>{c417e65a-9cd8-4226-ae13-af137b8e7092}</Project>
+      <Name>Demo.Excel.Helper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Model\Demo.Model\Demo.Model.csproj">
       <Project>{c3bd0cf9-09ae-4789-9b89-b6cbacfdb564}</Project>
       <Name>Demo.Model</Name>
